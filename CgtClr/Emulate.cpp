@@ -1,12 +1,14 @@
 ﻿//Project
 #include "stdafx.h"
 #include "Emulate.h"
+#include <string>
 
 using namespace System::Runtime::InteropServices;
 using namespace System;
 
 namespace CgtClr {
 	namespace Emulate {
+		//Служебные функции
 		String^ CharToString(char* ch) {
 			return Marshal::PtrToStringAnsi(IntPtr(ch));
 		}
@@ -29,9 +31,9 @@ namespace CgtClr {
 		{
 			return BaseCgt::ref->sdkGetElementName(id_sdk, CharToString(name));
 		}
-		ElementFlags elGetFlag(int id_element)
+		NElementFlags elGetFlag(int id_element)
 		{
-			return BaseCgt::ref->elGetFlag(id_element);
+			return static_cast<NElementFlags>(BaseCgt::ref->elGetFlag(id_element));
 		}
 		int elGetPropCount(int id_element)
 		{
@@ -73,9 +75,9 @@ namespace CgtClr {
 		{
 			return BaseCgt::ref->elGetPtName(id_element, CharToString(name));
 		}
-		ElementClass elGetClassIndex(int id_element)
+		NElementClass elGetClassIndex(int id_element)
 		{
-			return BaseCgt::ref->elGetClassIndex(id_element);
+			return static_cast<NElementClass>(BaseCgt::ref->elGetClassIndex(id_element));
 		}
 		int elGetSDK(int id_element)
 		{
@@ -109,9 +111,9 @@ namespace CgtClr {
 		{
 			return BaseCgt::ref->ptGetRLinkPoint(id_point);
 		}
-		PointType ptGetType(int id_point)
+		NPointType ptGetType(int id_point)
 		{
-			return BaseCgt::ref->ptGetType(id_point);
+			return static_cast<NPointType>(BaseCgt::ref->ptGetType(id_point));
 		}
 		const char *ptGetName(int id_point)
 		{
@@ -129,9 +131,9 @@ namespace CgtClr {
 		{
 			return StringToChar(BaseCgt::ref->pt_dpeGetName(id_point));
 		}
-		DataType propGetType(int id_prop)
+		NDataType propGetType(int id_prop)
 		{
-			return BaseCgt::ref->propGetType(id_prop);
+			return static_cast<NDataType>(BaseCgt::ref->propGetType(id_prop));
 		}
 		const char *propGetName(int id_prop)
 		{
@@ -189,17 +191,69 @@ namespace CgtClr {
 		{
 			return BaseCgt::ref->_Debug(CharToString(text), color);
 		}
-		int GetParam(CgtParams index, void *value)
+		int GetParam(NCgtParams index, void *buf) //TODO проверить
 		{
-			return BaseCgt::ref->GetParam(index); //TODO доработать
+			Object ^param = BaseCgt::ref->GetParam(static_cast<CgtParams>(index));
+
+			if (param == nullptr)
+				return 0;
+
+			auto writeString = [buf](Object ^obj) {
+#pragma warning( disable : 4996 )
+				strcpy(reinterpret_cast<char *>(buf), StringToChar(obj->ToString()));
+			};
+			auto writeInt = [buf](Object ^obj) {
+				*reinterpret_cast<int *>(buf) = static_cast<int>(obj); //-V206
+			};
+
+			switch (index) {
+			case NCgtParams::PARAM_CODE_PATH:
+				writeString(param);
+				break;
+			case NCgtParams::PARAM_DEBUG_MODE:
+				writeInt(param);
+				break;
+			case NCgtParams::PARAM_DEBUG_SERVER_PORT:
+				writeInt(param);
+				break;
+			case NCgtParams::PARAM_DEBUG_CLIENT_PORT:
+				writeInt(param);
+				break;
+			case NCgtParams::PARAM_PROJECT_PATH:
+				writeString(param);
+				break;
+			case NCgtParams::PARAM_HIASM_VERSION:
+				writeString(param);
+				break;
+			case NCgtParams::PARAM_USER_NAME:
+				writeString(param);
+				break;
+			case NCgtParams::PARAM_USER_MAIL:
+				writeString(param);
+				break;
+			case NCgtParams::PARAM_PROJECT_NAME:
+				writeString(param);
+				break;
+			case NCgtParams::PARAM_SDE_WIDTH:
+				writeInt(param);
+				break;
+			case NCgtParams::PARAM_SDE_HEIGHT:
+				writeInt(param);
+				break;
+			case NCgtParams::PARAM_COMPILER:
+				writeString(param);
+				break;
+			}
+
+			return 0;
 		}
 		int arrCount(int id_value)
 		{
 			return BaseCgt::ref->arrCount(id_value);
 		}
-		DataType arrType(int id_value)
+		NDataType arrType(int id_value)
 		{
-			return BaseCgt::ref->arrType(id_value);
+			return static_cast<NDataType>(BaseCgt::ref->arrType(id_value));
 		}
 		const char *arrItemName(int id_value, int index)
 		{
@@ -217,9 +271,9 @@ namespace CgtClr {
 		{
 			return BaseCgt::ref->isDebug(id_element);
 		}
-		DataType dtType(int id_value)
+		NDataType dtType(int id_value)
 		{
-			return BaseCgt::ref->dtType(id_value);
+			return static_cast<NDataType>(BaseCgt::ref->dtType(id_value));
 		}
 		const char *dtStr(int id_value)
 		{
@@ -261,9 +315,9 @@ namespace CgtClr {
 		{
 			BaseCgt::ref->elSetData(id_element, data);
 		}
-		DataType ptGetDataType(int id_point)
+		NDataType ptGetDataType(int id_point)
 		{
-			return BaseCgt::ref->ptGetDataType(id_point);
+			return static_cast<NDataType>(BaseCgt::ref->ptGetDataType(id_point));
 		}
 		int elGetParent(int id_element)
 		{

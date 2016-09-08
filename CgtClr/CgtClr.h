@@ -11,6 +11,7 @@ namespace CgtClr {
 	public ref class BaseCgt abstract
 	{
 	public:
+		BaseCgt() {}
 		void RunCodeGen(const String ^codeGenPath, int idRootContainer);
 		static BaseCgt ^ref;
 
@@ -57,7 +58,7 @@ namespace CgtClr {
 		virtual String ^ resAddBitmap(int id_prop) abstract;
 		virtual String ^ resAddMenu(int id_prop) abstract;
 		virtual int _Debug(String ^ text, int color) abstract;
-		virtual int GetParam(CgtParams index) abstract; //TODO доработать
+		virtual Object ^ GetParam(CgtParams index) abstract; //TODO доработать
 		virtual int arrCount(int id_value) abstract;
 		virtual DataType arrType(int id_value) abstract;
 		virtual String ^ arrItemName(int id_value, int index) abstract;
