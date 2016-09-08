@@ -100,7 +100,7 @@ namespace CgtClr {
 		};
 
 		//!ru Типы данных
-		public enum class NDataType {
+		enum NDataType {
 			data_null = 0,
 			data_int,
 			data_str,
@@ -126,7 +126,7 @@ namespace CgtClr {
 			data_object
 		};
 		//!ru Типы данных
-		enum DataType {
+		public enum class DataType {
 			data_null = 0,
 			data_int,
 			data_str,

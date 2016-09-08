@@ -15,6 +15,13 @@ namespace CgtClr {
 		void RunCodeGen(const String ^codeGenPath, int idRootContainer);
 		static BaseCgt ^ref;
 
+		//cpptripleslash
+
+		/// <summary>
+		/// Считаем количество элементов в контейнере
+		/// </summary>
+		/// <param name="id_sdk">Идентификатор контейнера</param>
+		/// <returns>Количество элементов</returns>
 		virtual int sdkGetCount(int id_sdk) abstract;
 		virtual int sdkGetElement(int id_sdk, int index) abstract;
 		virtual int sdkGetElementName(int id_sdk, String ^ name) abstract;
