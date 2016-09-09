@@ -485,55 +485,62 @@ namespace CgtClr {
 		virtual int elGetPropertyListCount(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает указатель на свойство из списка свойств элемента.
 		/// </summary>
 		/// <param name="ptr">Указатель на элемент</param>
-		/// <param name="index"></param>
+		/// <param name="index">Индекс свойства</param>
 		/// <returns>Указатель на свойство</returns>
+		[Obsolete]
 		virtual IntPtr elGetPropertyListItem(IntPtr ptr, int index) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает имя свойства.
 		/// </summary>
 		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns></returns>
+		/// <returns>Имя свойства</returns>
+		[Obsolete]
 		virtual String ^ plGetName(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает описание свойства.
 		/// </summary>
 		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns></returns>
+		/// <returns>Описание свойства</returns>
+		[Obsolete]
 		virtual String ^ plGetInfo(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает название группы свойства.
 		/// </summary>
 		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns></returns>
+		/// <returns>Название группы свойства</returns>
+		[Obsolete]
 		virtual String ^ plGetGroup(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает указатель на значение свойства.
 		/// </summary>
 		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns>Указатель на значение</returns>
+		[Obsolete]
 		virtual IntPtr plGetProperty(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает указатель на родительский элемент свойства.
 		/// </summary>
 		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns></returns>
-		virtual int plGetOwner(IntPtr ptr) abstract;
+		/// <returns>Указатель на элемент</returns>
+		[Obsolete]
+		virtual IntPtr plGetOwner(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает описание точки.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns></returns>
+		/// <param name="ptr">Указатель на точку</param>
+		/// <returns>Описание точки</returns>
 		virtual String ^ ptGetInfo(IntPtr ptr) abstract;
 
+		ывавыа
 		/// <summary>
 		/// 
 		/// </summary>
