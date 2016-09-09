@@ -296,15 +296,15 @@ namespace CgtClr {
 		{
 			return BaseCgt::ref->fntSize(id_value);
 		}
-		unsigned char EXPORT fntStyle(int id_value)
+		byte EXPORT fntStyle(int id_value)
 		{
 			return BaseCgt::ref->fntStyle(id_value);
 		}
-		unsigned int EXPORT fntColor(int id_value)
+		int EXPORT fntColor(int id_value)
 		{
 			return BaseCgt::ref->fntColor(id_value);
 		}
-		unsigned char EXPORT fntCharSet(int id_value)
+		byte EXPORT fntCharSet(int id_value)
 		{
 			return BaseCgt::ref->fntCharSet(id_value);
 		}
