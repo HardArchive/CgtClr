@@ -142,61 +142,63 @@ namespace CgtClr {
 		virtual bool elLinkIs(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем идентификатор главного элемента(тот, на который ссылаются другие)
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Идентификатор элемента</returns>
 		virtual int elLinkMain(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Помещает в переменные "X" и "Y", позицию элемента в редакторе схем
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <param name="X"></param>
-		/// <param name="Y"></param>
+		/// <param name="X">Позиция по горизонтали</param>
+		/// <param name="Y">Позиция по вертикали</param>
 		virtual void elGetPos(int id_element, int % X, int % Y) abstract;
 
 		/// <summary>
-		/// 
+		/// Помещает в переменные "W" и "H", размеры элемента
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <param name="W"></param>
-		/// <param name="H"></param>
+		/// <param name="W">Ширина</param>
+		/// <param name="H">Высота</param>
 		virtual void elGetSize(int id_element, int % W, int % H) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем специальный идентификатор элемента
 		/// </summary>
-		/// <param name="id_point"></param>
-		/// <returns></returns>
-		virtual int elGetEID(int id_point) abstract;
+		/// <param name="id_element">Идентификатор элемента</param>
+		/// <returns>Идентификатор элемента</returns>
+		[Obsolete]
+		virtual int elGetEID(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем идентификатор точки с которой соединена указанная
 		/// </summary>
-		/// <param name="id_point"></param>
-		/// <returns></returns>
+		/// <param name="id_point">Идентификатор точки</param>
+		/// <returns>Идентификатор точки</returns>
 		virtual int ptGetLinkPoint(int id_point) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем идентификатор точки с которой соединена указанная,
+		/// без учета точек разрыва и хабов.
 		/// </summary>
-		/// <param name="id_point"></param>
-		/// <returns></returns>
+		/// <param name="id_point">Идентификатор точки</param>
+		/// <returns>Идентификатор точки</returns>
 		virtual int ptGetRLinkPoint(int id_point) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем тип точки
 		/// </summary>
-		/// <param name="id_point"></param>
-		/// <returns></returns>
+		/// <param name="id_point">Идентификатор точки</param>
+		/// <returns>Тип точки</returns>
 		virtual PointType ptGetType(int id_point) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем имя точки
 		/// </summary>
-		/// <param name="id_point"></param>
-		/// <returns></returns>
+		/// <param name="id_point">Идентификатор точки</param>
+		/// <returns>Имя точки</returns>
 		virtual String ^ ptGetName(int id_point) abstract;
 
 		/// <summary>

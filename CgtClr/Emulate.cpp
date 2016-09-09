@@ -100,9 +100,10 @@ namespace CgtClr {
 		{
 			BaseCgt::ref->elGetSize(id_element, W, H);
 		}
-		int EXPORT elGetEID(int id_point)
+		int EXPORT elGetEID(int id_element)
 		{
-			return BaseCgt::ref->elGetEID(id_point);
+#pragma warning( disable : 4947 )
+			return BaseCgt::ref->elGetEID(id_element);
 		}
 		int EXPORT ptGetLinkPoint(int id_point)
 		{
