@@ -227,8 +227,7 @@ namespace CgtClr {
 		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns>Тип свойства</returns>
 		virtual DataType propGetType(IntPtr ptr) abstract;
-
-
+		
 		/// <summary>
 		/// Возвращает имя свойства
 		/// </summary>
@@ -237,10 +236,10 @@ namespace CgtClr {
 		virtual String ^ propGetName(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на данные свойства
+		/// Возвращает указатель на значение свойства
 		/// </summary>
 		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns>Указатель на данные</returns>
+		/// <returns>Указатель на значение</returns>
 		virtual IntPtr propGetValue(IntPtr ptr) abstract;
 
 		/// <summary>
