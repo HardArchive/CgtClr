@@ -227,7 +227,7 @@ namespace CgtClr {
 		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns>Тип свойства</returns>
 		virtual DataType propGetType(IntPtr ptr) abstract;
-		
+
 		/// <summary>
 		/// Возвращает имя свойства
 		/// </summary>
@@ -243,134 +243,135 @@ namespace CgtClr {
 		virtual IntPtr propGetValue(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает значение свойства в формате byte
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual unsigned char propToByte(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Значение свойства</returns>
+		virtual byte propToByte(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает значение свойства в формате int
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual int propToInteger(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Значение свойства</returns>
+		virtual int propToInteger(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает значение свойства в формате double
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual double propToReal(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Значение свойства</returns>
+		virtual double propToReal(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает значение свойства в формате <see cref="String"/>.
 		/// </summary>
-		/// <param name="id_prop"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns></returns>
-		virtual String ^ propToString(int id_prop) abstract;
+		virtual String ^ propToString(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Добавляет файл в список ресурсов.
 		/// </summary>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		virtual int resAddFile(String ^ name) abstract;
+		/// <param name="name">Путь к файлу</param>
+		/// <returns>Всегда возвращает 0</returns>
+		virtual int resAddFile(String ^ filePath) abstract;
 
 		/// <summary>
-		/// 
+		/// Добавляет иконку из значения свойства в ресурсы.
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual String ^ resAddIcon(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Имя временного файла</returns>
+		virtual String ^ resAddIcon(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Добавляет строку в ресурсы.
 		/// </summary>
-		/// <param name="str"></param>
-		/// <returns></returns>
+		/// <param name="str">Строка для добавления</param>
+		/// <returns>Имя временного файла</returns>
 		virtual String ^ resAddStr(String ^ str) abstract;
 
 		/// <summary>
-		/// 
+		/// Добавляет поток данных из значения свойства в ресурсы.
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual String ^ resAddStream(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Имя временного файла</returns>
+		virtual String ^ resAddStream(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		///  Добавляет Wave звук из значения свойства в ресурсы.
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual String ^ resAddWave(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Имя временного файла</returns>
+		virtual String ^ resAddWave(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Добавляет картинку из значения свойства в ресурсы.
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual String ^ resAddBitmap(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Имя временного файла</returns>
+		virtual String ^ resAddBitmap(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Добавляет меню из значения свойства в ресурсы.
 		/// </summary>
-		/// <param name="id_prop"></param>
-		/// <returns></returns>
-		virtual String ^ resAddMenu(int id_prop) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Имя временного файла</returns>
+		[Obsolete]
+		virtual String ^ resAddMenu(IntPtr ptr) abstract;
 
 		/// <summary>
-		/// 
+		/// Выводит текст в окно отладки.
 		/// </summary>
-		/// <param name="text"></param>
-		/// <param name="color"></param>
-		/// <returns></returns>
+		/// <param name="text">Текст выводимый в отладочное окно</param>
+		/// <param name="color">Цвет выводимого текста</param>
+		/// <returns>Всегда возвращает 0</returns>
 		virtual int _Debug(String ^ text, int color) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращаем значение параметра среды.
 		/// </summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
+		/// <param name="index">Индекс параметра</param>
+		/// <returns>Параметр среды</returns>
 		virtual Object ^ GetParam(CgtParams index) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращаем количество элементов в массиве значения.
 		/// </summary>
-		/// <param name="id_value"></param>
-		/// <returns></returns>
-		virtual int arrCount(int id_value) abstract;
+		/// <param name="ptr">Указатель на значение</param>
+		/// <returns>Количество элементов массива</returns>
+		virtual int arrCount(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual DataType arrType(int id_value) abstract;
+		virtual DataType arrType(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		virtual String ^ arrItemName(int id_value, int index) abstract;
+		virtual String ^ arrItemName(IntPtr ptr, int index) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		virtual int arrItemData(int id_value, int index) abstract;
+		virtual int arrItemData(IntPtr ptr, int index) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		virtual int arrGetItem(int id_value, int index) abstract;
+		virtual int arrGetItem(IntPtr ptr, int index) abstract;
 
 		/// <summary>
 		/// 
@@ -382,65 +383,65 @@ namespace CgtClr {
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual DataType dtType(int id_value) abstract;
+		virtual DataType dtType(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual String ^ dtStr(int id_value) abstract;
+		virtual String ^ dtStr(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual int dtInt(int id_value) abstract;
+		virtual int dtInt(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual double dtReal(int id_value) abstract;
+		virtual double dtReal(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual String ^ fntName(int id_value) abstract;
+		virtual String ^ fntName(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual int fntSize(int id_value) abstract;
+		virtual int fntSize(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual unsigned char fntStyle(int id_value) abstract;
+		virtual unsigned char fntStyle(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual unsigned int fntColor(int id_value) abstract;
+		virtual unsigned int fntColor(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_value"></param>
+		/// <param name="ptr">Указатель на значение</param>
 		/// <returns></returns>
-		virtual unsigned char fntCharSet(int id_value) abstract;
+		virtual unsigned char fntCharSet(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
@@ -482,75 +483,75 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="id">Идентификатор элемента</param>
 		/// <param name="index"></param>
-		/// <returns></returns>
-		virtual int elGetPropertyListItem(int id, int index) abstract;
+		/// <returns>Указатель на свойство</returns>
+		virtual IntPtr elGetPropertyListItem(int id, int index) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="ptr"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns></returns>
 		virtual String ^ plGetName(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="ptr"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns></returns>
 		virtual String ^ plGetInfo(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="ptr"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns></returns>
 		virtual String ^ plGetGroup(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="ptr"></param>
-		/// <returns></returns>
-		virtual int plGetProperty(IntPtr ptr) abstract;
+		/// <param name="ptr">Указатель на свойство</param>
+		/// <returns>Указатель на значение</returns>
+		virtual IntPtr plGetProperty(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_prop"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns></returns>
-		virtual int plGetOwner(int id_prop) abstract;
+		virtual int plGetOwner(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_prop"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns></returns>
-		virtual String ^ ptGetInfo(int id_prop) abstract;
+		virtual String ^ ptGetInfo(IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_prop"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <param name="propName"></param>
 		/// <returns></returns>
-		virtual int propGetLinkedElement(int id_prop, String ^ propName) abstract;
+		virtual int propGetLinkedElement(IntPtr ptr, String ^ propName) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="id">Идентификатор элемента</param>
-		/// <param name="id_prop"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <returns></returns>
-		virtual int propIsTranslate(int id, int id_prop) abstract;
+		virtual int propIsTranslate(int id, IntPtr ptr) abstract;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="id">Идентификатор элемента</param>
-		/// <param name="id_prop"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <param name="info"></param>
 		/// <returns></returns>
-		virtual int propGetLinkedElementInfo(int id, int id_prop, String ^ info) abstract;
+		virtual int propGetLinkedElementInfo(int id, IntPtr ptr, String ^ info) abstract;
 
 		/// <summary>
 		/// 
@@ -628,9 +629,9 @@ namespace CgtClr {
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id_prop"></param>
+		/// <param name="ptr">Указатель на свойство</param>
 		/// <param name="fileName"></param>
 		/// <returns></returns>
-		virtual int propSaveToFile(int id_prop, String ^ fileName) abstract;
+		virtual int propSaveToFile(IntPtr ptr, String ^ fileName) abstract;
 	};
 }
