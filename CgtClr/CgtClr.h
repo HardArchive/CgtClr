@@ -14,8 +14,6 @@ namespace CgtClr {
 		void RunCodeGen(const String ^codeGenPath, int idRootContainer);
 		static BaseCgt ^ref;
 
-		//cpptripleslash
-
 		/// <summary>
 		/// Считаем количество элементов в контейнере
 		/// </summary>
@@ -70,76 +68,77 @@ namespace CgtClr {
 		virtual bool elIsDefProp(int id_element, int index) abstract;
 
 		/// <summary>
-		/// 
+		/// Присваиваем элементу уникальное имя
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <param name="name"></param>
-		/// <returns></returns>
+		/// <param name="name">Имя элемента</param>
+		/// <returns>Идентификатор элемента</returns>
 		virtual int elSetCodeName(int id_element, String ^ name) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем уникальное имя элемента
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Имя элемента</returns>
 		virtual String ^ elGetCodeName(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем имя класса элемента
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Имя класса элемента</returns>
 		virtual String ^ elGetClassName(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем содержимое поля Sub из конфигурационного INI-файла элемента
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Содержимое поля Sub</returns>
 		virtual String ^ elGetInfSub(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем общее количество видимых точек у элемента
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Количество видимых точек</returns>
 		virtual int elGetPtCount(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем идентификатор точки по её индексу
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <param name="index"></param>
-		/// <returns></returns>
+		/// <param name="index">Индекс точки</param>
+		/// <returns>Идентификатор точки</returns>
 		virtual int elGetPt(int id_element, int index) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем идентификатор точки по её имени
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <param name="name"></param>
-		/// <returns></returns>
+		/// <param name="name">Имя точки</param>
+		/// <returns>Идентификатор точки</returns>
 		virtual int elGetPtName(int id_element, String ^ name) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем индекс класса элемента
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Индекс класса элемента</returns>
 		virtual ElementClass elGetClassIndex(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Получаем идентификатор контейнера элемента.
+		/// Если элемент не содержит контейнер, возвращается идентификатор элемента родителя текущего контейнера.
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Идентификатор контейнера</returns>
 		virtual int elGetSDK(int id_element) abstract;
 
 		/// <summary>
-		/// 
+		/// Является ли элемент ссылкой, либо на него ссылаются
 		/// </summary>
 		/// <param name="id_element">Идентификатор элемента</param>
-		/// <returns></returns>
+		/// <returns>Если элемент является ссылкой или на него ссылаются - true, иначе - false</returns>
 		virtual bool elLinkIs(int id_element) abstract;
 
 		/// <summary>
