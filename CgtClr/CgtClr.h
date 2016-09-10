@@ -539,32 +539,113 @@ namespace CgtClr {
 		/// <returns>Описание точки</returns>
 		virtual String ^ ptGetInfo(Object ^ p) abstract;
 
+		/// <summary>
+		///	Возвращает элемент, прилинкованный к указанному свойству.
+		/// </summary>
+		/// <param name="e">Элемент</param>
+		/// <param name="propName">Имя свойства</param>
+		/// <returns>Элемент</returns>
 		virtual Object ^ propGetLinkedElement(Object ^ e, String ^ propName) abstract;
-
+		
+		/// <summary>
+		/// Возвращает 1, если свойство помечено на перевод.
+		/// </summary>
+		/// <param name="e">Элемент</param>
+		/// <param name="pp">Свойство</param>
+		/// <returns>Статус перевода</returns>
+		[Obsolete]
 		virtual int propIsTranslate(Object ^ e, Object ^ pp) abstract;
 
+		/// <summary>
+		/// Возвращает элемент, прилинкованный к указанному свойству.
+		/// </summary>
+		/// <param name="e">Элемент</param>
+		/// <param name="pp">Свойство</param>
+		/// <param name="info">
+		/// Имя интерфейса элемента.
+		/// Например, в строке из INI: FormFastening=Форма для привязки позиции|20|(empty)|ControlManager
+		/// ControlManager - имя интерфейса, которое мы должны передать в info.</param>
+		/// <returns></returns>
 		virtual Object ^ propGetLinkedElementInfo(Object ^ e, Object ^ pp, String ^ info) abstract;
 
+		/// <summary>
+		/// Возвращает контейнер по его индексу из элемента.
+		/// </summary>
+		/// <param name="e">Элемент</param>
+		/// <param name="index">Индекс</param>
+		/// <returns>Контейнер</returns>
 		virtual Object ^ elGetSDKByIndex(Object ^ e, int index) abstract;
 
+		/// <summary>
+		/// Возвращает количество контейнеров полиморфного элемента(CI_PolyMulti).
+		/// </summary>
+		/// <param name="e">Элемент</param>
+		/// <returns>Количество контейнеров</returns>
 		virtual int elGetSDKCount(Object ^ e) abstract;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
+		/// <param name="index"></param>
+		/// <returns></returns>
 		virtual String ^ elGetSDKName(Object ^ e, int index) abstract;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="c"></param>
+		/// <returns></returns>
 		virtual Object ^ sdkGetParent(Object ^ c) abstract;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
+		/// <returns></returns>
 		virtual String ^ elGetInterface(Object ^ e) abstract;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
+		/// <returns></returns>
 		virtual String ^ elGetInherit(Object ^ e) abstract;
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		virtual int resEmpty() abstract;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pref"></param>
+		/// <returns></returns>
 		virtual int resSetPref(String ^ pref) abstract;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="num_line"></param>
+		/// <param name="e"></param>
+		/// <param name="text"></param>
+		/// <returns></returns>
 		virtual int _Error(int num_line, Object ^ e, String ^ text) abstract;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
+		/// <returns></returns>
 		virtual int elGetGroup(Object ^ e) abstract;
 
+		/// <summary>
+		///
+		/// </summary>
+		/// <param name="pp"></param>
+		/// <param name="fileName"></param>
+		/// <returns></returns>
 		virtual int propSaveToFile(Object ^ pp, String ^ fileName) abstract;
 	};
 }
