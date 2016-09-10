@@ -17,7 +17,7 @@ namespace CgtClr {
 		/// Считает количество элементов в контейнере.
 		/// </summary>
 		/// <param name="c">Контейнер</param>
-		/// <returns>Количество элементов в контейнере</returns>
+		/// <returns>Возвращает количество элементов в контейнере</returns>
 		virtual int sdkGetCount(Object ^ c) abstract;
 
 		/// <summary>
@@ -25,7 +25,7 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="c">Контейнер</param>
 		/// <param name="index">Z-положение(индекс) элемента</param>
-		/// <returns>Элемент</returns>
+		/// <returns>Возвращает элемент</returns>
 		virtual Object ^ sdkGetElement(Object ^ c, int index) abstract;
 
 		/// <summary>
@@ -33,21 +33,21 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="c">Контейнер</param>
 		/// <param name="name">Имя элемента</param>
-		/// <returns>Элемент</returns>
+		/// <returns>Возвращает элемент</returns>
 		virtual Object ^ sdkGetElementName(Object ^ c, String ^ name) abstract;
 
 		/// <summary>
 		/// Возвращает флаги элемента.
 		/// </summary>
 		/// <param name="e">Элемент</param>
-		/// <returns>Флаги элемента</returns>
+		/// <returns>Возвращает флаги элемента</returns>
 		virtual ElementFlags elGetFlag(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает количество свойств элемента.
 		/// </summary>
 		/// <param name="e">Элемент</param>
-		/// <returns>Количество свойств элемента</returns>
+		/// <returns>Возвращает количество свойств элемента</returns>
 		virtual int elGetPropCount(Object ^ e) abstract;
 
 		/// <summary>
@@ -55,7 +55,7 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="e">Элемент</param>
 		/// <param name="index">Индекс свойства</param>
-		/// <returns>Свойство</returns>
+		/// <returns>Возвращает свойство</returns>
 		virtual Object ^ elGetProperty(Object ^ e, int index) abstract;
 
 		/// <summary>
@@ -63,7 +63,7 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="e">Элемент</param>
 		/// <param name="index">Индекс свойства</param>
-		/// <returns>Состояние свойства</returns>
+		/// <returns>Возвращает состояние свойства</returns>
 		virtual bool elIsDefProp(Object ^ e, int index) abstract;
 
 		/// <summary>
@@ -71,35 +71,35 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="e">Элемент</param>
 		/// <param name="name">Имя элемента</param>
-		/// <returns>Элемент</returns>
+		/// <returns>Возвращает элемент</returns>
 		virtual Object ^ elSetCodeName(Object ^ e, String ^ name) abstract;
 
 		/// <summary>
 		/// Возвращает уникальное имя элемента.
 		/// </summary>
 		/// <param name="e">Элемент</param>
-		/// <returns>Имя элемента</returns>
+		/// <returns>Возвращает имя элемента</returns>
 		virtual String ^ elGetCodeName(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает имя класса элемента.
 		/// </summary>
 		/// <param name="e">Элемент</param>
-		/// <returns>Имя класса элемента</returns>
+		/// <returns>Возвращает имя класса элемента</returns>
 		virtual String ^ elGetClassName(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает содержимое поля Sub из конфигурационного INI-файла элемента.
 		/// </summary>
 		/// <param name="e">Элемент</param>
-		/// <returns>Содержимое поля Sub</returns>
+		/// <returns>Возвращает содержимое поля Sub</returns>
 		virtual String ^ elGetInfSub(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает общее количество видимых точек у элемента.
 		/// </summary>
 		/// <param name="e">Элемент</param>
-		/// <returns>Количество видимых точек</returns>
+		/// <returns>Возвращает количество видимых точек</returns>
 		virtual int elGetPtCount(Object ^ e) abstract;
 
 		/// <summary>
@@ -107,7 +107,7 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="e">Элемент</param>
 		/// <param name="index">Индекс точки</param>
-		/// <returns>Точку</returns>
+		/// <returns>Возвращает точку</returns>
 		virtual Object ^ elGetPt(Object ^ e, int index) abstract;
 
 		/// <summary>
@@ -115,7 +115,7 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="e">Элемент</param>
 		/// <param name="name">Имя точки</param>
-		/// <returns>Точку</returns>
+		/// <returns>Возвращает точку</returns>
 		virtual Object ^ elGetPtName(Object ^ e, String ^ name) abstract;
 
 		/// <summary>
@@ -144,7 +144,7 @@ namespace CgtClr {
 		/// Возвращает идентификатор главного элемента(тот, на который ссылаются другие).
 		/// </summary>
 		/// <param name="e">Элемент</param>
-		/// <returns>Элемент</returns>
+		/// <returns>Возвращает элемент</returns>
 		virtual Object ^ elLinkMain(Object ^ e) abstract;
 
 		/// <summary>
@@ -175,7 +175,7 @@ namespace CgtClr {
 		/// Возвращает точку с которой соединена указанная.
 		/// </summary>
 		/// <param name="p">Точка</param>
-		/// <returns>Точка</returns>
+		/// <returns>Возвращает точку</returns>
 		virtual Object ^ ptGetLinkPoint(Object ^ p) abstract;
 
 		/// <summary>
@@ -183,7 +183,7 @@ namespace CgtClr {
 		/// без учета точек разрыва и хабов.
 		/// </summary>
 		/// <param name="p">Точка</param>
-		/// <returns>Точка</returns>
+		/// <returns>Возвращает точку</returns>
 		virtual Object ^ ptGetRLinkPoint(Object ^ p) abstract;
 
 		/// <summary>
@@ -204,7 +204,7 @@ namespace CgtClr {
 		/// Возвращает идентификатор родителя точки.
 		/// </summary>
 		/// <param name="p">Точка</param>
-		/// <returns>Элемент</returns>
+		/// <returns>Возвращает элемент</returns>
 		virtual Object ^ ptGetParent(Object ^ p) abstract;
 
 		/// <summary>
@@ -528,7 +528,7 @@ namespace CgtClr {
 		/// Возвращает родительский элемент свойства.
 		/// </summary>
 		/// <param name="p">Свойство</param>
-		/// <returns>Элемент</returns>
+		/// <returns>Возвращает элемент</returns>
 		[Obsolete]
 		virtual Object ^ plGetOwner(Object ^ p) abstract;
 
@@ -544,9 +544,9 @@ namespace CgtClr {
 		/// </summary>
 		/// <param name="e">Элемент</param>
 		/// <param name="propName">Имя свойства</param>
-		/// <returns>Элемент</returns>
+		/// <returns>Возвращает элемент</returns>
 		virtual Object ^ propGetLinkedElement(Object ^ e, String ^ propName) abstract;
-		
+
 		/// <summary>
 		/// Возвращает 1, если свойство помечено на перевод.
 		/// </summary>
@@ -584,68 +584,73 @@ namespace CgtClr {
 		virtual int elGetSDKCount(Object ^ e) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает имя контейнера по индексу.
 		/// </summary>
-		/// <param name="e"></param>
-		/// <param name="index"></param>
-		/// <returns></returns>
+		/// <param name="e">Элемент</param>
+		/// <param name="index">Индекс контейнера</param>
+		/// <returns>Имя контейнера</returns>
 		virtual String ^ elGetSDKName(Object ^ e, int index) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает элемент родитель для указанного контейнера, или null, если контейнер не имеет родителя.
 		/// </summary>
-		/// <param name="c"></param>
-		/// <returns></returns>
+		/// <param name="c">Контейнер</param>
+		/// <returns>Возвращает элемент или null</returns>
 		virtual Object ^ sdkGetParent(Object ^ c) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает интерфейсы, предоставляемые элементом.   
+		/// Содержимое поля Interfaces= из конфигурации элемента
 		/// </summary>
-		/// <param name="e"></param>
-		/// <returns></returns>
+		/// <param name="e">Элемент</param>
+		/// <returns>Возвращает строку</returns>
 		virtual String ^ elGetInterface(Object ^ e) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает список классов, от которых наследуется элемент.
+		/// Содержимое поля Inherit= из конфигурации элемента.
 		/// </summary>
-		/// <param name="e"></param>
-		/// <returns></returns>
+		/// <param name="e">Элемент</param>
+		/// <returns>Возвращает строку</returns>
 		virtual String ^ elGetInherit(Object ^ e) abstract;
 		/// <summary>
-		/// 
+		/// Возвращает 1, если список ресурсов пуст, и 0 в противном случае.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Возвращает 1 или 0</returns>
 		virtual int resEmpty() abstract;
 
 		/// <summary>
-		/// 
+		/// Устанавливает префикс для имен ресурсов.
 		/// </summary>
-		/// <param name="pref"></param>
-		/// <returns></returns>
+		/// <param name="pref">Префикс</param>
+		/// <returns>Всегда возвращает 0</returns>
+		[Obsolete]
 		virtual int resSetPref(String ^ pref) abstract;
 
 		/// <summary>
-		/// 
+		/// Добавляет информацию об ошибке в отладочный вывод.
 		/// </summary>
-		/// <param name="num_line"></param>
-		/// <param name="e"></param>
-		/// <param name="text"></param>
-		/// <returns></returns>
+		/// <param name="num_line">Номер строки</param>
+		/// <param name="e">Элемент</param>
+		/// <param name="text">Текст</param>
+		/// <returns>Всегда возвращает 0</returns>
 		virtual int _Error(int num_line, Object ^ e, String ^ text) abstract;
 
 		/// <summary>
-		/// 
+		/// Возвращает идентификатор группы, к которой принадлежит элемент и 0, если группа отсутствует
 		/// </summary>
-		/// <param name="e"></param>
-		/// <returns></returns>
+		/// <param name="e">Элемент</param>
+		/// <returns>Возвращает идентификатор</returns>
+		[Obsolete]
 		virtual int elGetGroup(Object ^ e) abstract;
 
 		/// <summary>
-		///
+		/// Сохраняет данные свойства в файл.
 		/// </summary>
-		/// <param name="pp"></param>
-		/// <param name="fileName"></param>
-		/// <returns></returns>
+		/// <param name="pp">Свойство</param>
+		/// <param name="fileName">Имя файла</param>
+		/// <returns>Всегда возвращает 0</returns>
+		[Obsolete]
 		virtual int propSaveToFile(Object ^ pp, String ^ fileName) abstract;
 	};
 }

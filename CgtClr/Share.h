@@ -1,105 +1,169 @@
 ﻿#pragma once
 
-//Project
-
-//!!! ========== Поддерживается только HiAsm 4, пакет Windows ==========
+//! ========== Поддерживается только HiAsm 4, пакет Windows ==========
 
 namespace CgtClr {
 	namespace Share {
-		//!ru Флаги элемента
+
+		/// <summary>
+		/// Флаги элемента.
+		/// Нативный enum.
+		/// </summary>
 		enum NElementFlags {
-			//ru Элемент заморожен (нельзя перемещать).
+			/// <summary>
+			/// Элемент заморожен (нельзя перемещать).
+			/// </summary>
 			ELEMENT_FLG_IS_FREEZE = 0x0,
 
-			//ru Элемент является частью интерфейса.
+			/// <summary>
+			/// Элемент является частью интерфейса.
+			/// </summary>
 			ELEMENT_FLG_ONE_WIDGET = 0x1,
 
-			//ru Элемент нельзя удалить.
+			/// <summary>
+			/// Элемент нельзя удалить.
+			/// </summary>
 			ELEMENT_FLG_IS_NODELETE = 0x2,
 
-			//ru Элемент является редактором контейнера.
-			//ru Например: EditMulti, EditMultiEx, EditPoliMulti.
+			/// <summary>
+			/// Элемент является редактором контейнера.
+			/// Например: EditMulti, EditMultiEx, EditPoliMulti.
+			/// </summary>
 			ELEMENT_FLG_IS_EDIT = 0x20,
 
-			//ru Элемент является контейнером.
+			/// <summary>
+			/// Элемент является контейнером.
+			/// </summary>
 			ELEMENT_FLG_IS_MULTI = 0x40,
 
-			//ru Элемент выбран в редакторе схем.
+			/// <summary>
+			/// Элемент выбран в редакторе схем.
+			/// </summary>
 			ELEMENT_FLG_IS_SELECT = 0x100,
 
-			//ru Родитель для элементов текущей SDK.
+			/// <summary>
+			/// Родитель для элементов текущей SDK.
+			/// </summary>
 			ELEMENT_FLG_IS_PARENT = 0x200,
 
-			//ru Элемент является базовым.
-			//ru Например: CI_HubEx, CI_GetDataEx, ElementInfoTip, HCButton.
+			/// <summary>
+			/// Элемент является базовым.
+			/// Например: CI_HubEx, CI_GetDataEx, ElementInfoTip, HCButton.
+			/// </summary>
 			ELEMENT_FLG_IS_CORE = 0x400,
 
-			//ru Элемент является ссылкой, либо на него ссылаются.
+			/// <summary>
+			/// Элемент является ссылкой, либо на него ссылаются.
+			/// </summary>
 			ELEMENT_FLG_IS_LINK = 0x800,
 		};
 
-		//!ru Флаги элемента
+		/// <summary>
+		/// Флаги элемента.
+		/// </summary>
 		public enum class ElementFlags {
-			//ru Элемент заморожен (нельзя перемещать).
+			/// <summary>
+			/// Элемент заморожен (нельзя перемещать).
+			/// </summary>
 			ELEMENT_FLG_IS_FREEZE = 0x0,
 
-			//ru Элемент является частью интерфейса.
+			/// <summary>
+			/// Элемент является частью интерфейса.
+			/// </summary>
 			ELEMENT_FLG_ONE_WIDGET = 0x1,
 
-			//ru Элемент нельзя удалить.
+			/// <summary>
+			/// Элемент нельзя удалить.
+			/// </summary>
 			ELEMENT_FLG_IS_NODELETE = 0x2,
 
-			//ru Элемент является редактором контейнера.
-			//ru Например: EditMulti, EditMultiEx, EditPoliMulti.
+			/// <summary>
+			/// Элемент является редактором контейнера.
+			/// Например: EditMulti, EditMultiEx, EditPoliMulti.
+			/// </summary>
 			ELEMENT_FLG_IS_EDIT = 0x20,
 
-			//ru Элемент является контейнером.
+			/// <summary>
+			/// Элемент является контейнером.
+			/// </summary>
 			ELEMENT_FLG_IS_MULTI = 0x40,
 
-			//ru Элемент выбран в редакторе схем.
+			/// <summary>
+			/// Элемент выбран в редакторе схем.
+			/// </summary>
 			ELEMENT_FLG_IS_SELECT = 0x100,
 
-			//ru Родитель для элементов текущей SDK.
+			/// <summary>
+			/// Родитель для элементов текущей SDK.
+			/// </summary>
 			ELEMENT_FLG_IS_PARENT = 0x200,
 
-			//ru Элемент является базовым.
-			//ru Например: CI_HubEx, CI_GetDataEx, ElementInfoTip, HCButton.
+			/// <summary>
+			/// Элемент является базовым.
+			/// Например: CI_HubEx, CI_GetDataEx, ElementInfoTip, HCButton.
+			/// </summary>
 			ELEMENT_FLG_IS_CORE = 0x400,
 
-			//ru Элемент является ссылкой, либо на него ссылаются.
+			/// <summary>
+			/// Элемент является ссылкой, либо на него ссылаются.
+			/// </summary>
 			ELEMENT_FLG_IS_LINK = 0x800,
 		};
 
-		//!ru Типы точек
+		/// <summary>
+		/// Типы точек.
+		/// Нативный enum.
+		/// </summary>
 		enum NPointType {
-			//ru Метод
+			/// <summary>
+			/// Метод
+			/// </summary>
 			pt_Work = 1,
 
-			//ru Событие
+			/// <summary>
+			/// Событие
+			/// </summary>
 			pt_Event,
 
-			//ru Переменная
+			/// <summary>
+			/// Переменная
+			/// </summary>
 			pt_Var,
 
-			//ru Данные
+			/// <summary>
+			/// Данные
+			/// </summary>
 			pt_Data
 		};
-		//!ru Типы точек
+		/// <summary>
+		/// Типы точек.
+		/// </summary>
 		public enum class PointType {
-			//ru Метод
+			/// <summary>
+			/// Метод
+			/// </summary>
 			pt_Work = 1,
 
-			//ru Событие
+			/// <summary>
+			/// Событие
+			/// </summary>
 			pt_Event,
 
-			//ru Переменная
+			/// <summary>
+			/// Переменная
+			/// </summary>
 			pt_Var,
 
-			//ru Данные
+			/// <summary>
+			/// Данные
+			/// </summary>
 			pt_Data
 		};
 
-		//!ru Типы данных
+		/// <summary>
+		/// Типы данных.
+		/// Нативный enum.
+		/// </summary>
 		enum NDataType {
 			data_null = 0,
 			data_int,
@@ -125,7 +189,9 @@ namespace CgtClr {
 			data_flags,
 			data_object
 		};
-		//!ru Типы данных
+		/// <summary>
+		/// Типы данных.
+		/// </summary>
 		public enum class DataType {
 			data_null = 0,
 			data_int,
@@ -152,110 +218,194 @@ namespace CgtClr {
 			data_object
 		};
 
-		//!ru Классы элементов (elGetClassIndex)
+		/// <summary>
+		/// Классы элементов (elGetClassIndex).
+		/// Нативный enum.
+		/// </summary>
 		enum NElementClass {
-			//ru Просто элемент.
+			/// <summary>
+			/// Просто элемент.
+			/// </summary>
 			CI_Element = 0,
-			//ru Элемент с динамическими точками (автонумерация), например - IndexToChanel.
-			//D - Dynamic, P - Point.
+			/// <summary>
+			/// Элемент с динамическими точками (автонумерация), например - IndexToChanel.
+			/// D - Dynamic, P - Point.
+			/// </summary>
 			CI_DPElement,
-			//ru Контейнер
+			/// <summary>
+			/// Контейнер
+			/// </summary>
 			CI_MultiElement,
-			//ru Редактор контейнера MultiElement.
+			/// <summary>
+			/// Редактор контейнера MultiElement.
+			/// </summary>
 			CI_EditMulti,
-			//ru Редактор динамического контейнера.
+			/// <summary>
+			/// Редактор динамического контейнера.
+			/// </summary>
 			CI_EditMultiEx,
-			//ru Элемент для встраивания кода.
+			/// <summary>
+			/// Элемент для встраивания кода.
+			/// </summary>
 			CI_InlineCode,
-			//ru Ручная отрисовка элемента интерфейса.
+			/// <summary>
+			/// Элемент для встраивания кода.
+			/// </summary>
 			CI_DrawElement,
-			//ru Специальный класс, который используется для реализации ActionSkin.
-			//ru Элемент AS_Control.
+			/// <summary>
+			/// Специальный класс, который используется для реализации ActionSkin.
+			/// Элемент AS_Control.
+			/// </summary>
 			CI_AS_Special,
-			//ru Элемент со списком динамических точек.
-			//ru Например элемент - VBScript.
-			//D - Dynamic, P - Point, L - List
+			/// <summary>
+			/// Элемент со списком динамических точек.
+			/// Например элемент - VBScript.
+			/// D - Dynamic, P - Point, L - List
+			/// </summary>
 			CI_DPLElement,
-			//ru Упрощённое подключение внешних библиотек.
+			/// <summary>
+			/// Упрощённое подключение внешних библиотек.
+			/// </summary>
 			CI_UseHiDLL,
-			//ru Элемент интерфейса, которым можно управлять в дизайнере форм.
+			/// <summary>
+			/// Элемент интерфейса, которым можно управлять в дизайнере форм.
+			/// </summary>
 			CI_WinElement,
-			//ru Сноска.
-			//ru PointHint - элемент базового пакета (_base).
+			/// <summary>
+			/// Сноска.
+			/// PointHint - элемент базового пакета (_base).
+			/// </summary>
 			CI_PointHint,
-			//ru Эмулятор элемента.
-			//ru PointElement - элемент базового пакета (_base).
+			/// <summary>
+			/// Эмулятор элемента.
+			/// PointElement - элемент базового пакета (_base).
+			/// </summary>
 			CI_PointElement,
-			//ru Разрыв линии.
-			//ru LineBreak - элемент базового пакета (_base).
+			/// <summary>
+			/// Разрыв линии.
+			/// LineBreak - элемент базового пакета (_base).
+			/// </summary>
 			CI_LineBreak,
-			//ru Разрыв линии.
-			//ru LineBreakEx - элемент базового пакета (_base).
+			/// <summary>
+			/// Разрыв линии.
+			/// LineBreakEx - элемент базового пакета (_base).
+			/// </summary>
 			CI_LineBreakEx,
-			//ru Пользовательский элемент.
+			/// <summary>
+			/// Пользовательский элемент.
+			/// </summary>
 			CI_UserElement,
-			//ru Элемент для работы с переводом.
-			//ru В пакете Windows, именуется как Class=Translator.
+			/// <summary>
+			/// Элемент для работы с переводом.
+			/// В пакете Windows именуется как Class=Translator.
+			/// </summary>
 			CI_Translate,
-			//ru Полиморфный контейнер.
-			//ru Элемент может содержать более одного контейнера.
+			/// <summary>
+			/// Полиморфный контейнер.
+			/// Элемент может содержать более одного контейнера.
+			/// </summary>
 			CI_PolyMulti,
-			//ru Шаблон документа.
+			/// <summary>
+			/// Шаблон документа.
+			/// </summary>
 			CI_DocumentTemplate
 		};
-		//!ru Классы элементов (elGetClassIndex)
+		/// <summary>
+		/// Классы элементов (elGetClassIndex).
+		/// </summary>
 		public enum class ElementClass {
-			//ru Просто элемент.
+			/// <summary>
+			/// Просто элемент.
+			/// </summary>
 			CI_Element = 0,
-			//ru Элемент с динамическими точками (автонумерация), например - IndexToChanel.
-			//D - Dynamic, P - Point.
+			/// <summary>
+			/// Элемент с динамическими точками (автонумерация), например - IndexToChanel.
+			/// D - Dynamic, P - Point.
+			/// </summary>
 			CI_DPElement,
-			//ru Контейнер
+			/// <summary>
+			/// Контейнер
+			/// </summary>
 			CI_MultiElement,
-			//ru Редактор контейнера MultiElement.
+			/// <summary>
+			/// Редактор контейнера MultiElement.
+			/// </summary>
 			CI_EditMulti,
-			//ru Редактор динамического контейнера.
+			/// <summary>
+			/// Редактор динамического контейнера.
+			/// </summary>
 			CI_EditMultiEx,
-			//ru Элемент для встраивания кода.
+			/// <summary>
+			/// Элемент для встраивания кода.
+			/// </summary>
 			CI_InlineCode,
-			//ru Ручная отрисовка элемента интерфейса.
+			/// <summary>
+			/// Элемент для встраивания кода.
+			/// </summary>
 			CI_DrawElement,
-			//ru Специальный класс, который используется для реализации ActionSkin.
-			//ru Элемент AS_Control.
+			/// <summary>
+			/// Специальный класс, который используется для реализации ActionSkin.
+			/// Элемент AS_Control.
+			/// </summary>
 			CI_AS_Special,
-			//ru Элемент со списком динамических точек.
-			//ru Например элемент - VBScript.
-			//D - Dynamic, P - Point, L - List
+			/// <summary>
+			/// Элемент со списком динамических точек.
+			/// Например элемент - VBScript.
+			/// D - Dynamic, P - Point, L - List
+			/// </summary>
 			CI_DPLElement,
-			//ru Упрощённое подключение внешних библиотек.
+			/// <summary>
+			/// Упрощённое подключение внешних библиотек.
+			/// </summary>
 			CI_UseHiDLL,
-			//ru Элемент интерфейса, которым можно управлять в дизайнере форм.
+			/// <summary>
+			/// Элемент интерфейса, которым можно управлять в дизайнере форм.
+			/// </summary>
 			CI_WinElement,
-			//ru Сноска.
-			//ru PointHint - элемент базового пакета (_base).
+			/// <summary>
+			/// Сноска.
+			/// PointHint - элемент базового пакета (_base).
+			/// </summary>
 			CI_PointHint,
-			//ru Эмулятор элемента.
-			//ru PointElement - элемент базового пакета (_base).
+			/// <summary>
+			/// Эмулятор элемента.
+			/// PointElement - элемент базового пакета (_base).
+			/// </summary>
 			CI_PointElement,
-			//ru Разрыв линии.
-			//ru LineBreak - элемент базового пакета (_base).
+			/// <summary>
+			/// Разрыв линии.
+			/// LineBreak - элемент базового пакета (_base).
+			/// </summary>
 			CI_LineBreak,
-			//ru Разрыв линии.
-			//ru LineBreakEx - элемент базового пакета (_base).
+			/// <summary>
+			/// Разрыв линии.
+			/// LineBreakEx - элемент базового пакета (_base).
+			/// </summary>
 			CI_LineBreakEx,
-			//ru Пользовательский элемент.
+			/// <summary>
+			/// Пользовательский элемент.
+			/// </summary>
 			CI_UserElement,
-			//ru Элемент для работы с переводом.
-			//ru В пакете Windows, именуется как Class=Translator.
+			/// <summary>
+			/// Элемент для работы с переводом.
+			/// В пакете Windows именуется как Class=Translator.
+			/// </summary>
 			CI_Translate,
-			//ru Полиморфный контейнер.
-			//ru Элемент может содержать более одного контейнера.
+			/// <summary>
+			/// Полиморфный контейнер.
+			/// Элемент может содержать более одного контейнера.
+			/// </summary>
 			CI_PolyMulti,
-			//ru Шаблон документа.
+			/// <summary>
+			/// Шаблон документа.
+			/// </summary>
 			CI_DocumentTemplate
 		};
 
-		//!ru Индексы параметров среды - GetParam()
+		/// <summary>
+		/// Индексы параметров среды - GetParam().
+		/// Нативный enum.
+		/// </summary>
 		enum NCgtParams {
 			PARAM_CODE_PATH = 0,
 			PARAM_DEBUG_MODE,
@@ -270,7 +420,9 @@ namespace CgtClr {
 			PARAM_SDE_HEIGHT,
 			PARAM_COMPILER
 		};
-		//!ru Индексы параметров среды - GetParam()
+		/// <summary>
+		/// Индексы параметров среды - GetParam()
+		/// </summary>
 		public enum class CgtParams {
 			PARAM_CODE_PATH = 0,
 			PARAM_DEBUG_MODE,
@@ -286,39 +438,63 @@ namespace CgtClr {
 			PARAM_COMPILER
 		};
 
-		//!ru Ошибки при работе с библиотекой кодогенератора
+		/// <summary>
+		/// Ошибки при работе с библиотекой кодогенератора
+		/// </summary>
 		enum CgResult {
-			//ru Успешное завершение.
+			/// <summary>
+			/// Успешное завершение.
+			/// </summary>
 			CG_SUCCESS = 0,
 
-			//ru Кодогенератор не найден.
+			/// <summary>
+			/// Кодогенератор не найден.
+			/// </summary>
 			CG_NOT_FOUND = 1,
 
-			//ru Используемая версия среды не поддерживается.
+			/// <summary>
+			/// Используемая версия среды не поддерживается.
+			/// </summary>
 			CG_INVALID_VERSION = 2,
 
-			//ru Точка входа в кодогенератор не найдена.
+			/// <summary>
+			/// Точка входа в кодогенератор не найдена.
+			/// </summary>
 			CG_ENTRY_POINT_NF = 3,
 
-			//ru Общая ошибка при сборке проекта.
+			/// <summary>
+			/// Общая ошибка при сборке проекта.
+			/// </summary>
 			CG_BUILD_FAILED = 10,
 
-			//ru Результат компиляции не найден.
+			/// <summary>
+			/// Результат компиляции не найден.
+			/// </summary>
 			CG_APP_NOT_FOUND = 20
 		};
 
-		//!ru Параметры проекта
+		/// <summary>
+		/// Параметры проекта
+		/// </summary>
 		enum ProjectFlags {
-			//ru Поддерживает сжатие.
+			/// <summary>
+			/// Поддерживает сжатие.
+			/// </summary>
 			CGMP_COMPRESSED = 0x01,
 
-			//ru Поддерживает запуск из среды.
+			/// <summary>
+			/// Поддерживает запуск из среды.
+			/// </summary>
 			CGMP_RUN = 0x02,
 
-			//ru Поддерживает запуск из среды в отладочном режиме.
+			/// <summary>
+			/// Поддерживает запуск из среды в отладочном режиме.
+			/// </summary>
 			CGMP_RUN_DEBUG = 0x04,
 
-			//ru Поддерживает внешний редактор форм.
+			/// <summary>
+			/// Поддерживает внешний редактор форм.
+			/// </summary>
 			CGMP_FORM_EDIT = 0x08
 		};
 
