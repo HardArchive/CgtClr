@@ -7,269 +7,268 @@ using namespace System;
 using namespace CgtClr::Share;
 
 namespace CgtClr {
-
 	public ref class BaseCgt abstract
 	{
 	public:
-		void RunCodeGen(const String ^codeGenPath, IntPtr ptrRootContainer);
+		void RunCodeGen(const String ^codeGenPath, Object ^ ptrRootContainer);
 		static BaseCgt ^ref;
 
 		/// <summary>
 		/// Считает количество элементов в контейнере.
 		/// </summary>
-		/// <param name="ptr">Указатель на контейнер</param>
+		/// <param name="c">Контейнер</param>
 		/// <returns>Количество элементов в контейнере</returns>
-		virtual int sdkGetCount(IntPtr id) abstract;
+		virtual int sdkGetCount(Object ^ c) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на элемент по его Z-положению(индексу) в контейнере.
+		/// Возвращает элемент по его Z-положению(индексу) в контейнере.
 		/// </summary>
-		/// <param name="ptr">Указатель на контейнер</param>
+		/// <param name="c">Контейнер</param>
 		/// <param name="index">Z-положение(индекс) элемента</param>
-		/// <returns>Указатель на элемент</returns>
-		virtual IntPtr sdkGetElement(IntPtr ptr, int index) abstract;
+		/// <returns>Элемент</returns>
+		virtual Object ^ sdkGetElement(Object ^ c, int index) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на элемент по имени элемента.
+		/// Возвращает элемент по имени.
 		/// </summary>
-		/// <param name="ptr">Указатель на контейнер</param>
+		/// <param name="c">Контейнер</param>
 		/// <param name="name">Имя элемента</param>
-		/// <returns>Указатель на элемент</returns>
-		virtual IntPtr sdkGetElementName(IntPtr ptr, String ^ name) abstract;
+		/// <returns>Элемент</returns>
+		virtual Object ^ sdkGetElementName(Object ^ c, String ^ name) abstract;
 
 		/// <summary>
 		/// Возвращает флаги элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Флаги элемента</returns>
-		virtual ElementFlags elGetFlag(IntPtr ptr) abstract;
+		virtual ElementFlags elGetFlag(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает количество свойств элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Количество свойств элемента</returns>
-		virtual int elGetPropCount(IntPtr ptr) abstract;
+		virtual int elGetPropCount(Object ^ e) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на свойство элемента по индексу с порядковым номером из INI.
+		/// Возвращает свойство элемента по индексу с порядковым номером из INI.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="index">Индекс свойства</param>
-		/// <returns>Указатель на свойство</returns>
-		virtual IntPtr elGetProperty(IntPtr ptr, int index) abstract;
+		/// <returns>Свойство</returns>
+		virtual Object ^ elGetProperty(Object ^ e, int index) abstract;
 
 		/// <summary>
 		/// Возвращает True, если значение свойства совпадает с заданным по умолчанию в INI файле, иначе False.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="index">Индекс свойства</param>
 		/// <returns>Состояние свойства</returns>
-		virtual bool elIsDefProp(IntPtr ptr, int index) abstract;
+		virtual bool elIsDefProp(Object ^ e, int index) abstract;
 
 		/// <summary>
 		/// Присваиваем элементу уникальное имя.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="name">Имя элемента</param>
-		/// <returns>Указатель на элемент</returns>
-		virtual IntPtr elSetCodeName(IntPtr ptr, String ^ name) abstract;
+		/// <returns>Элемент</returns>
+		virtual Object ^ elSetCodeName(Object ^ e, String ^ name) abstract;
 
 		/// <summary>
 		/// Возвращает уникальное имя элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Имя элемента</returns>
-		virtual String ^ elGetCodeName(IntPtr ptr) abstract;
+		virtual String ^ elGetCodeName(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает имя класса элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Имя класса элемента</returns>
-		virtual String ^ elGetClassName(IntPtr ptr) abstract;
+		virtual String ^ elGetClassName(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает содержимое поля Sub из конфигурационного INI-файла элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Содержимое поля Sub</returns>
-		virtual String ^ elGetInfSub(IntPtr ptr) abstract;
+		virtual String ^ elGetInfSub(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает общее количество видимых точек у элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Количество видимых точек</returns>
-		virtual int elGetPtCount(IntPtr ptr) abstract;
+		virtual int elGetPtCount(Object ^ e) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на точку по её индексу.
+		/// Возвращает точку по её индексу.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="index">Индекс точки</param>
-		/// <returns>Указатель на точку</returns>
-		virtual IntPtr elGetPt(IntPtr ptr, int index) abstract;
+		/// <returns>Точку</returns>
+		virtual Object ^ elGetPt(Object ^ e, int index) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на точку по её имени.
+		/// Возвращает точку по её имени.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="name">Имя точки</param>
-		/// <returns>Указатель на точку</returns>
-		virtual IntPtr elGetPtName(IntPtr ptr, String ^ name) abstract;
+		/// <returns>Точку</returns>
+		virtual Object ^ elGetPtName(Object ^ e, String ^ name) abstract;
 
 		/// <summary>
 		/// Возвращает индекс класса элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Индекс класса элемента</returns>
-		virtual ElementClass elGetClassIndex(IntPtr ptr) abstract;
+		virtual ElementClass elGetClassIndex(Object ^ e) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на контейнер элемента.
-		/// Если элемент не содержит контейнер, возвращается указатель на элемент родителя текущего контейнера.
+		/// Возвращает контейнер элемента.
+		/// Если элемент не содержит контейнер, возвращается элемент родителя текущего контейнера.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <returns>Указатель на контейнер или элемента</returns>
-		virtual IntPtr elGetSDK(IntPtr ptr) abstract;
+		/// <param name="e">Элемент</param>
+		/// <returns>Контейнер или элемент</returns>
+		virtual Object ^ elGetSDK(Object ^ e) abstract;
 
 		/// <summary>
 		/// Проверяет, является ли элемент ссылкой, либо на него ссылаются.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Если элемент является ссылкой или на него ссылаются - true, иначе - false</returns>
-		virtual bool elLinkIs(IntPtr ptr) abstract;
+		virtual bool elLinkIs(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает идентификатор главного элемента(тот, на который ссылаются другие).
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <returns>Указатель на элемент</returns>
-		virtual IntPtr elLinkMain(IntPtr ptr) abstract;
+		/// <param name="e">Элемент</param>
+		/// <returns>Элемент</returns>
+		virtual Object ^ elLinkMain(Object ^ e) abstract;
 
 		/// <summary>
 		/// Помещает в переменные "X" и "Y", позицию элемента в редакторе схем.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="X">Позиция по горизонтали</param>
 		/// <param name="Y">Позиция по вертикали</param>
-		virtual void elGetPos(IntPtr ptr, int % X, int % Y) abstract;
+		virtual void elGetPos(Object ^ e, int % X, int % Y) abstract;
 
 		/// <summary>
 		/// Помещает в переменные "W" и "H", размеры элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="W">Ширина</param>
 		/// <param name="H">Высота</param>
-		virtual void elGetSize(IntPtr ptr, int % W, int % H) abstract;
+		virtual void elGetSize(Object ^ e, int % W, int % H) abstract;
 
 		/// <summary>
 		/// Возвращает идентификатор элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Идентификатор элемента</returns>
 		[Obsolete]
-		virtual int elGetEID(IntPtr ptr) abstract;
+		virtual int elGetEID(Object ^ e) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на точку с которой соединена указанная.
+		/// Возвращает точку с которой соединена указанная.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
-		/// <returns>Указатель на точку</returns>
-		virtual IntPtr ptGetLinkPoint(IntPtr ptr) abstract;
+		/// <param name="p">Точка</param>
+		/// <returns>Точка</returns>
+		virtual Object ^ ptGetLinkPoint(Object ^ p) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на точку с которой соединена указанная,
+		/// Возвращает точку с которой соединена указанная,
 		/// без учета точек разрыва и хабов.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
-		/// <returns>Указатель на точку</returns>
-		virtual IntPtr ptGetRLinkPoint(IntPtr ptr) abstract;
+		/// <param name="p">Точка</param>
+		/// <returns>Точка</returns>
+		virtual Object ^ ptGetRLinkPoint(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает тип точки.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
+		/// <param name="p">Точка</param>
 		/// <returns>Тип точки</returns>
-		virtual PointType ptGetType(IntPtr ptr) abstract;
+		virtual PointType ptGetType(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает имя точки.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
+		/// <param name="p">Точка</param>
 		/// <returns>Имя точки</returns>
-		virtual String ^ ptGetName(IntPtr ptr) abstract;
+		virtual String ^ ptGetName(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает идентификатор родителя точки.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
-		/// <returns>Указатель на элемент</returns>
-		virtual IntPtr ptGetParent(IntPtr ptr) abstract;
+		/// <param name="p">Точка</param>
+		/// <returns>Элемент</returns>
+		virtual Object ^ ptGetParent(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает индекс точки относительно точек того же типа.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
+		/// <param name="p">Точка</param>
 		/// <returns>Индекс точки</returns>
-		virtual int ptGetIndex(IntPtr ptr) abstract;
+		virtual int ptGetIndex(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает базовую часть имени динамической точки(для CI_DPElement).
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
+		/// <param name="p">Точка</param>
 		/// <returns>Часть имени динамической точки</returns>
-		virtual String ^ pt_dpeGetName(IntPtr ptr) abstract;
+		virtual String ^ pt_dpeGetName(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает тип свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Тип свойства</returns>
-		virtual DataType propGetType(IntPtr ptr) abstract;
+		virtual DataType propGetType(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает имя свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Имя свойства</returns>
-		virtual String ^ propGetName(IntPtr ptr) abstract;
+		virtual String ^ propGetName(Object ^ p) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на значение свойства.
+		/// Возвращает значение свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns>Указатель на значение</returns>
-		virtual IntPtr propGetValue(IntPtr ptr) abstract;
+		/// <param name="p">Свойство</param>
+		/// <returns>Значение</returns>
+		virtual Object ^ propGetValue(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает значение свойства в формате byte.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Значение свойства</returns>
-		virtual byte propToByte(IntPtr ptr) abstract;
+		virtual byte propToByte(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает значение свойства в формате int.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Значение свойства</returns>
-		virtual int propToInteger(IntPtr ptr) abstract;
+		virtual int propToInteger(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает значение свойства в формате double.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Значение свойства</returns>
-		virtual double propToReal(IntPtr ptr) abstract;
+		virtual double propToReal(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает значение свойства в формате String.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns></returns>
-		virtual String ^ propToString(IntPtr ptr) abstract;
+		virtual String ^ propToString(Object ^ p) abstract;
 
 		/// <summary>
 		/// Добавляет файл в список ресурсов.
@@ -281,9 +280,9 @@ namespace CgtClr {
 		/// <summary>
 		/// Добавляет иконку из свойства в ресурсы.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Имя временного файла</returns>
-		virtual String ^ resAddIcon(IntPtr ptr) abstract;
+		virtual String ^ resAddIcon(Object ^ p) abstract;
 
 		/// <summary>
 		/// Добавляет строку в ресурсы.
@@ -295,31 +294,31 @@ namespace CgtClr {
 		/// <summary>
 		/// Добавляет поток данных из свойства в ресурсы.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Имя временного файла</returns>
-		virtual String ^ resAddStream(IntPtr ptr) abstract;
+		virtual String ^ resAddStream(Object ^ p) abstract;
 
 		/// <summary>
 		///  Добавляет Wave звук из свойства в ресурсы.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Имя временного файла</returns>
-		virtual String ^ resAddWave(IntPtr ptr) abstract;
+		virtual String ^ resAddWave(Object ^ p) abstract;
 
 		/// <summary>
 		/// Добавляет картинку из свойства в ресурсы.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Имя временного файла</returns>
-		virtual String ^ resAddBitmap(IntPtr ptr) abstract;
+		virtual String ^ resAddBitmap(Object ^ p) abstract;
 
 		/// <summary>
 		/// Добавляет меню из свойства в ресурсы.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Имя временного файла</returns>
 		[Obsolete]
-		virtual String ^ resAddMenu(IntPtr ptr) abstract;
+		virtual String ^ resAddMenu(Object ^ p) abstract;
 
 		/// <summary>
 		/// Выводит текст в окно отладки.
@@ -339,312 +338,233 @@ namespace CgtClr {
 		/// <summary>
 		/// Возвращает количество элементов в массиве.
 		/// </summary>
-		/// <param name="ptr">Указатель на массив</param>
+		/// <param name="a">Массив</param>
 		/// <returns>Количество элементов массива</returns>
-		virtual int arrCount(IntPtr ptr) abstract;
+		virtual int arrCount(Object ^ a) abstract;
 
 		/// <summary>
 		/// Возвращает тип элементов в массиве.
 		/// </summary>
-		/// <param name="ptr">Указатель на массив</param>
+		/// <param name="a">Массив</param>
 		/// <returns>Тип элементов массива</returns>
-		virtual DataType arrType(IntPtr ptr) abstract;
+		virtual DataType arrType(Object ^ a) abstract;
 
 		/// <summary>
 		/// Возвращает имя элемента по индексу массива.
 		/// </summary>
-		/// <param name="ptr">Указатель на массив</param>
+		/// <param name="a">Массив</param>
 		/// <param name="index">Индекс элемента массива</param>
 		/// <returns>Имя элемента массива</returns>
-		virtual String ^ arrItemName(IntPtr ptr, int index) abstract;
+		virtual String ^ arrItemName(Object ^ a, int index) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на данные элемента массива значения.
+		/// Возвращает данные элемента массива.
 		/// </summary>
-		/// <param name="ptr">Указатель на значение</param>
+		/// <param name="a">Массив</param>
 		/// <param name="index">Индекс элемента массива</param>
-		/// <returns>Указатель на данные элемента массива</returns>
+		/// <returns>Данные элемента массива</returns>
 		[Obsolete]
-		virtual IntPtr arrItemData(IntPtr ptr, int index) abstract;
+		virtual Object ^ arrItemData(Object ^ a, int index) abstract;
 
 		/// <summary>
-		/// Возвращает элемент массива как указатель на свойство со значением элемента массива.
+		/// Возвращает элемент массива как свойство со значением элемента массива.
 		/// </summary>
-		/// <param name="ptr">Указатель на массив</param>
+		/// <param name="a">Массив</param>
 		/// <param name="index">Индекс элемента массива</param>
-		/// <returns>Указатель на свойство</returns>
-		virtual IntPtr arrGetItem(IntPtr ptr, int index) abstract;
+		/// <returns>Свойство</returns>
+		virtual Object ^ arrGetItem(Object ^ a, int index) abstract;
 
 		/// <summary>
 		/// Возвращает статус отладки запущенной схемы.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>
 		/// Если число больше нуля - отладка включена.
 		/// Если число равно нулю - отладка выключена.
 		/// </returns>
-		virtual int isDebug(IntPtr ptr) abstract;
+		virtual int isDebug(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает тип данных.
 		/// </summary>
-		/// <param name="ptr">Указатель на данные</param>
+		/// <param name="d">Данные</param>
 		/// <returns>Тип данных</returns>
-		virtual DataType dtType(IntPtr ptr) abstract;
+		virtual DataType dtType(Object ^ d) abstract;
 
 		/// <summary>
 		/// Возвращает данные в формате String.
 		/// </summary>
-		/// <param name="ptr">Указатель на данные</param>
+		/// <param name="d">Данные</param>
 		/// <returns>Строка</returns>
-		virtual String ^ dtStr(IntPtr ptr) abstract;
+		virtual String ^ dtStr(Object ^ d) abstract;
 
 		/// <summary>
 		/// Возвращает данные в формате int.
 		/// </summary>
-		/// <param name="ptr">Указатель на данные</param>
+		/// <param name="d">Данные</param>
 		/// <returns>Число</returns>
-		virtual int dtInt(IntPtr ptr) abstract;
+		virtual int dtInt(Object ^ d) abstract;
 
 		/// <summary>
 		/// Возвращает данные в формате double.
 		/// </summary>
-		/// <param name="ptr">Указатель на данные</param>
+		/// <param name="d">Данные</param>
 		/// <returns>Дробное число</returns>
-		virtual double dtReal(IntPtr ptr) abstract;
+		virtual double dtReal(Object ^ d) abstract;
 
 		/// <summary>
 		/// Возвращает название шрифта.
 		/// </summary>
-		/// <param name="ptr">Указатель на шрифт</param>
+		/// <param name="f">Шрифт</param>
 		/// <returns>Название шрифта</returns>
-		virtual String ^ fntName(IntPtr ptr) abstract;
+		virtual String ^ fntName(Object ^ f) abstract;
 
 		/// <summary>
 		/// Возвращает размер шрифта.
 		/// </summary>
-		/// <param name="ptr">Указатель на шрифт</param>
+		/// <param name="f">Шрифт</param>
 		/// <returns>Размер шрифта</returns>
-		virtual int fntSize(IntPtr ptr) abstract;
+		virtual int fntSize(Object ^ f) abstract;
 
 		/// <summary>
 		/// Возвращает стиль шрифта.
 		/// </summary>
-		/// <param name="ptr">Указатель на шрифт</param>
+		/// <param name="f">Шрифт</param>
 		/// <returns>Стиль шрифта</returns>
-		virtual byte fntStyle(IntPtr ptr) abstract;
+		virtual byte fntStyle(Object ^ f) abstract;
 
 		/// <summary>
 		/// Возвращает цвет шрифта.
 		/// </summary>
-		/// <param name="ptr">Указатель на шрифт</param>
+		/// <param name="f">Шрифт</param>
 		/// <returns>Цвет шрифта</returns>
-		virtual int fntColor(IntPtr ptr) abstract;
+		virtual int fntColor(Object ^ f) abstract;
 
 		/// <summary>
 		/// Возвращает кодировку шрифта.
 		/// </summary>
-		/// <param name="ptr">Указатель на шрифт</param>
+		/// <param name="f">Шрифт</param>
 		/// <returns>Кодировка шрифта</returns>
-		virtual byte fntCharSet(IntPtr ptr) abstract;
+		virtual byte fntCharSet(Object ^ f) abstract;
 
 		/// <summary>
 		/// Возвращает указатель на пользовательские данные элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Указатель на пользовательские данные</returns>
-		virtual IntPtr elGetData(IntPtr ptr) abstract;
+		virtual IntPtr elGetData(Object ^ e) abstract;
 
 		/// <summary>
 		/// Присваивает элементу указатель на пользовательские данные.
 		/// </summary>
-		/// <param name="eptr">Указатель на элемент</param>
-		/// <param name="dptr">Указатель на пользовательские данные</param>
-		virtual void elSetData(IntPtr eptr, IntPtr dptr) abstract;
+		/// <param name="e">Элемент</param>
+		/// <param name="ptr">Указатель на пользовательские данные</param>
+		virtual void elSetData(Object ^ e, IntPtr ptr) abstract;
 
 		/// <summary>
 		/// Возвращает тип данных точки.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
+		/// <param name="p">Точка</param>
 		/// <returns>Тип данных</returns>
-		virtual DataType ptGetDataType(IntPtr ptr) abstract;
+		virtual DataType ptGetDataType(Object ^ p) abstract;
 
 		/// <summary>
-		/// Возвращает идентификатор родительского контейнера элемента.
+		/// Возвращает родительский контейнер элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <returns>Указатель на контейнер</returns>
-		virtual IntPtr elGetParent(IntPtr ptr) abstract;
+		/// <param name="e">Элемент</param>
+		/// <returns>Контейнер</returns>
+		virtual Object ^ elGetParent(Object ^ e) abstract;
 
 		/// <summary>
 		/// Возвращает количество свойств в списке свойств(из панели свойств).
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <returns>Количество свойств (всегда 0)</returns>
 		[Obsolete]
-		virtual int elGetPropertyListCount(IntPtr ptr) abstract;
+		virtual int elGetPropertyListCount(Object ^ e) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на свойство из списка свойств элемента.
+		/// Возвращает свойство из списка свойств элемента.
 		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
+		/// <param name="e">Элемент</param>
 		/// <param name="index">Индекс свойства</param>
-		/// <returns>Указатель на свойство</returns>
+		/// <returns>Свойство</returns>
 		[Obsolete]
-		virtual IntPtr elGetPropertyListItem(IntPtr ptr, int index) abstract;
+		virtual Object ^ elGetPropertyListItem(Object ^ e, int index) abstract;
 
 		/// <summary>
 		/// Возвращает имя свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Имя свойства</returns>
 		[Obsolete]
-		virtual String ^ plGetName(IntPtr ptr) abstract;
+		virtual String ^ plGetName(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает описание свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Описание свойства</returns>
 		[Obsolete]
-		virtual String ^ plGetInfo(IntPtr ptr) abstract;
+		virtual String ^ plGetInfo(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает название группы свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
+		/// <param name="p">Свойство</param>
 		/// <returns>Название группы свойства</returns>
 		[Obsolete]
-		virtual String ^ plGetGroup(IntPtr ptr) abstract;
+		virtual String ^ plGetGroup(Object ^ p) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на значение свойства.
+		/// Возвращает значение свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns>Указатель на значение</returns>
+		/// <param name="p">Свойство</param>
+		/// <returns>Значение</returns>
 		[Obsolete]
-		virtual IntPtr plGetProperty(IntPtr ptr) abstract;
+		virtual Object ^ plGetProperty(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает указатель на родительский элемент свойства.
 		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns>Указатель на элемент</returns>
+		/// <param name="p">Свойство</param>
+		/// <returns>Элемент</returns>
 		[Obsolete]
-		virtual IntPtr plGetOwner(IntPtr ptr) abstract;
+		virtual Object ^ plGetOwner(Object ^ p) abstract;
 
 		/// <summary>
 		/// Возвращает описание точки.
 		/// </summary>
-		/// <param name="ptr">Указатель на точку</param>
+		/// <param name="p">Точка</param>
 		/// <returns>Описание точки</returns>
-		virtual String ^ ptGetInfo(IntPtr ptr) abstract;
+		virtual String ^ ptGetInfo(Object ^ p) abstract;
 
-		ывавыа
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <param name="propName"></param>
-		/// <returns></returns>
-		virtual int propGetLinkedElement(IntPtr ptr, String ^ propName) abstract;
+		virtual Object ^ propGetLinkedElement(Object ^ e, String ^ propName) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <returns></returns>
-		virtual int propIsTranslate(IntPtr ptr, IntPtr ptr) abstract;
+		virtual int propIsTranslate(Object ^ e, Object ^ pp) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <param name="info"></param>
-		/// <returns></returns>
-		virtual int propGetLinkedElementInfo(IntPtr ptr, IntPtr ptr, String ^ info) abstract;
+		virtual Object ^ propGetLinkedElementInfo(Object ^ e, Object ^ pp, String ^ info) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		virtual int elGetSDKByIndex(IntPtr ptr, int index) abstract;
+		virtual Object ^ elGetSDKByIndex(Object ^ e, int index) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <returns></returns>
-		virtual int elGetSDKCount(IntPtr ptr) abstract;
+		virtual int elGetSDKCount(Object ^ e) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		virtual String ^ elGetSDKName(IntPtr ptr, int index) abstract;
+		virtual String ^ elGetSDKName(Object ^ e, int index) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на контейнер</param>
-		/// <returns></returns>
-		virtual int sdkGetParent(IntPtr id) abstract;
+		virtual Object ^ sdkGetParent(Object ^ c) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <returns></returns>
-		virtual String ^ elGetInterface(IntPtr ptr) abstract;
+		virtual String ^ elGetInterface(Object ^ e) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <returns></returns>
-		virtual String ^ elGetInherit(IntPtr ptr) abstract;
+		virtual String ^ elGetInherit(Object ^ e) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
 		virtual int resEmpty() abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="pref"></param>
-		/// <returns></returns>
 		virtual int resSetPref(String ^ pref) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="line"></param>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <param name="text"></param>
-		/// <returns></returns>
-		virtual int _Error(int line, IntPtr ptr, String ^ text) abstract;
+		virtual int _Error(int num_line, Object ^ e, String ^ text) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на элемент</param>
-		/// <returns></returns>
-		virtual int elGetGroup(IntPtr ptr) abstract;
+		virtual int elGetGroup(Object ^ e) abstract;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ptr">Указатель на свойство</param>
-		/// <param name="fileName"></param>
-		/// <returns></returns>
-		virtual int propSaveToFile(IntPtr ptr, String ^ fileName) abstract;
+		virtual int propSaveToFile(Object ^ pp, String ^ fileName) abstract;
 	};
 }
