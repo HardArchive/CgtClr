@@ -1,6 +1,6 @@
 ﻿//Project
 #include "stdafx.h"
-#include "Emulate.h"
+#include "EmulateCgt.h"
 
 using namespace System::Runtime::InteropServices;
 using namespace System;
@@ -18,184 +18,184 @@ namespace CgtClr {
 			return (const char*)(Marshal::StringToHGlobalAnsi(managedString)).ToPointer();
 		}
 
-		//! функции CGT
+		//Функции CGT
 
 		int EXPORT sdkGetCount(int id_sdk)
 		{
-			return BaseCgt::ref->sdkGetCount(id_sdk);
+			return EmulateCgt::ref->sdkGetCount(id_sdk);
 		}
 		int EXPORT sdkGetElement(int id_sdk, int index)
 		{
-			return BaseCgt::ref->sdkGetElement(id_sdk, index);
+			return EmulateCgt::ref->sdkGetElement(id_sdk, index);
 		}
 		int EXPORT sdkGetElementName(int id_sdk, char *name)
 		{
-			return BaseCgt::ref->sdkGetElementName(id_sdk, CharToString(name));
+			return EmulateCgt::ref->sdkGetElementName(id_sdk, CharToString(name));
 		}
 		NElementFlags EXPORT elGetFlag(int id_element)
 		{
-			return static_cast<NElementFlags>(BaseCgt::ref->elGetFlag(id_element));
+			return static_cast<NElementFlags>(EmulateCgt::ref->elGetFlag(id_element));
 		}
 		int EXPORT elGetPropCount(int id_element)
 		{
-			return BaseCgt::ref->elGetPropCount(id_element);
+			return EmulateCgt::ref->elGetPropCount(id_element);
 		}
 		int EXPORT elGetProperty(int id_element, int index)
 		{
-			return BaseCgt::ref->elGetProperty(id_element, index);
+			return EmulateCgt::ref->elGetProperty(id_element, index);
 		}
 		bool EXPORT elIsDefProp(int id_element, int index)
 		{
-			return BaseCgt::ref->elIsDefProp(id_element, index);
+			return EmulateCgt::ref->elIsDefProp(id_element, index);
 		}
 		int EXPORT elSetCodeName(int id_element, char *name)
 		{
-			return BaseCgt::ref->elSetCodeName(id_element, CharToString(name));
+			return EmulateCgt::ref->elSetCodeName(id_element, CharToString(name));
 		}
 		const char* EXPORT elGetCodeName(int id_element)
 		{
-			return StringToChar(BaseCgt::ref->elGetCodeName(id_element));
+			return StringToChar(EmulateCgt::ref->elGetCodeName(id_element));
 		}
 		const char* EXPORT elGetClassName(int id_element)
 		{
-			return StringToChar(BaseCgt::ref->elGetClassName(id_element));
+			return StringToChar(EmulateCgt::ref->elGetClassName(id_element));
 		}
 		const char* EXPORT elGetInfSub(int id_element)
 		{
-			return StringToChar(BaseCgt::ref->elGetInfSub(id_element));
+			return StringToChar(EmulateCgt::ref->elGetInfSub(id_element));
 		}
 		int EXPORT elGetPtCount(int id_element)
 		{
-			return BaseCgt::ref->elGetPtCount(id_element);
+			return EmulateCgt::ref->elGetPtCount(id_element);
 		}
 		int EXPORT elGetPt(int id_element, int index)
 		{
-			return BaseCgt::ref->elGetPt(id_element, index);
+			return EmulateCgt::ref->elGetPt(id_element, index);
 		}
 		int EXPORT elGetPtName(int id_element, char *name)
 		{
-			return BaseCgt::ref->elGetPtName(id_element, CharToString(name));
+			return EmulateCgt::ref->elGetPtName(id_element, CharToString(name));
 		}
 		NElementClass EXPORT elGetClassIndex(int id_element)
 		{
-			return static_cast<NElementClass>(BaseCgt::ref->elGetClassIndex(id_element));
+			return static_cast<NElementClass>(EmulateCgt::ref->elGetClassIndex(id_element));
 		}
 		int EXPORT elGetSDK(int id_element)
 		{
-			return BaseCgt::ref->elGetSDK(id_element);
+			return EmulateCgt::ref->elGetSDK(id_element);
 		}
 		bool EXPORT elLinkIs(int id_element)
 		{
-			return BaseCgt::ref->elLinkIs(id_element);
+			return EmulateCgt::ref->elLinkIs(id_element);
 		}
 		int EXPORT elLinkMain(int id_element)
 		{
-			return BaseCgt::ref->elLinkMain(id_element);
+			return EmulateCgt::ref->elLinkMain(id_element);
 		}
 		void EXPORT elGetPos(int id_element, int &X, int &Y)
 		{
-			BaseCgt::ref->elGetPos(id_element, X, Y);
+			EmulateCgt::ref->elGetPos(id_element, X, Y);
 		}
 		void EXPORT elGetSize(int id_element, int &W, int &H)
 		{
-			BaseCgt::ref->elGetSize(id_element, W, H);
+			EmulateCgt::ref->elGetSize(id_element, W, H);
 		}
 		int EXPORT elGetEID(int id_element)
 		{
 #pragma warning( disable : 4947 )
-			return BaseCgt::ref->elGetEID(id_element);
+			return EmulateCgt::ref->elGetEID(id_element);
 		}
 		int EXPORT ptGetLinkPoint(int id_point)
 		{
-			return BaseCgt::ref->ptGetLinkPoint(id_point);
+			return EmulateCgt::ref->ptGetLinkPoint(id_point);
 		}
 		int EXPORT ptGetRLinkPoint(int id_point)
 		{
-			return BaseCgt::ref->ptGetRLinkPoint(id_point);
+			return EmulateCgt::ref->ptGetRLinkPoint(id_point);
 		}
 		NPointType EXPORT ptGetType(int id_point)
 		{
-			return static_cast<NPointType>(BaseCgt::ref->ptGetType(id_point));
+			return static_cast<NPointType>(EmulateCgt::ref->ptGetType(id_point));
 		}
 		const char* EXPORT ptGetName(int id_point)
 		{
-			return StringToChar(BaseCgt::ref->ptGetName(id_point));
+			return StringToChar(EmulateCgt::ref->ptGetName(id_point));
 		}
 		int EXPORT ptGetParent(int id_point)
 		{
-			return BaseCgt::ref->ptGetParent(id_point);
+			return EmulateCgt::ref->ptGetParent(id_point);
 		}
 		int EXPORT ptGetIndex(int id_point)
 		{
-			return BaseCgt::ref->ptGetIndex(id_point);
+			return EmulateCgt::ref->ptGetIndex(id_point);
 		}
 		const char* EXPORT pt_dpeGetName(int id_point)
 		{
-			return StringToChar(BaseCgt::ref->pt_dpeGetName(id_point));
+			return StringToChar(EmulateCgt::ref->pt_dpeGetName(id_point));
 		}
 		NDataType EXPORT propGetType(int id_prop)
 		{
-			return static_cast<NDataType>(BaseCgt::ref->propGetType(id_prop));
+			return static_cast<NDataType>(EmulateCgt::ref->propGetType(id_prop));
 		}
 		const char *EXPORT propGetName(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->propGetName(id_prop));
+			return StringToChar(EmulateCgt::ref->propGetName(id_prop));
 		}
 		int EXPORT propGetValue(int id_prop)
 		{
-			return BaseCgt::ref->propGetValue(id_prop);
+			return EmulateCgt::ref->propGetValue(id_prop);
 		}
 		unsigned char EXPORT propToByte(int id_prop)
 		{
-			return BaseCgt::ref->propToByte(id_prop);
+			return EmulateCgt::ref->propToByte(id_prop);
 		}
 		int EXPORT propToInteger(int id_prop)
 		{
-			return BaseCgt::ref->propToInteger(id_prop);
+			return EmulateCgt::ref->propToInteger(id_prop);
 		}
 		double EXPORT propToReal(int id_prop)
 		{
-			return BaseCgt::ref->propToReal(id_prop);
+			return EmulateCgt::ref->propToReal(id_prop);
 		}
 		const char* EXPORT propToString(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->propToString(id_prop));
+			return StringToChar(EmulateCgt::ref->propToString(id_prop));
 		}
 		int EXPORT resAddFile(char *name)
 		{
-			return BaseCgt::ref->resAddFile(CharToString(name));
+			return EmulateCgt::ref->resAddFile(CharToString(name));
 		}
 		const char* EXPORT resAddIcon(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->resAddIcon(id_prop));
+			return StringToChar(EmulateCgt::ref->resAddIcon(id_prop));
 		}
 		const char* EXPORT resAddStr(char *str)
 		{
-			return StringToChar(BaseCgt::ref->resAddStr(CharToString(str)));
+			return StringToChar(EmulateCgt::ref->resAddStr(CharToString(str)));
 		}
 		const char* EXPORT resAddStream(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->resAddStream(id_prop));
+			return StringToChar(EmulateCgt::ref->resAddStream(id_prop));
 		}
 		const char* EXPORT resAddWave(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->resAddWave(id_prop));
+			return StringToChar(EmulateCgt::ref->resAddWave(id_prop));
 		}
 		const char* EXPORT resAddBitmap(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->resAddBitmap(id_prop));
+			return StringToChar(EmulateCgt::ref->resAddBitmap(id_prop));
 		}
 		const char* EXPORT resAddMenu(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->resAddMenu(id_prop));
+			return StringToChar(EmulateCgt::ref->resAddMenu(id_prop));
 		}
 		int EXPORT _Debug(char *text, int color)
 		{
-			return BaseCgt::ref->_Debug(CharToString(text), color);
+			return EmulateCgt::ref->_Debug(CharToString(text), color);
 		}
 		int EXPORT GetParam(NCgtParams index, void *buf) //TODO проверить
 		{
-			Object ^param = BaseCgt::ref->GetParam(static_cast<CgtParams>(index));
+			Object ^param = EmulateCgt::ref->GetParam(static_cast<CgtParams>(index));
 			if (param == nullptr)
 				return 0;
 
@@ -250,170 +250,176 @@ namespace CgtClr {
 		}
 		int EXPORT arrCount(int id_value)
 		{
-			return BaseCgt::ref->arrCount(id_value);
+			return EmulateCgt::ref->arrCount(id_value);
 		}
 		NDataType EXPORT arrType(int id_value)
 		{
-			return static_cast<NDataType>(BaseCgt::ref->arrType(id_value));
+			return static_cast<NDataType>(EmulateCgt::ref->arrType(id_value));
 		}
 		const char* EXPORT arrItemName(int id_value, int index)
 		{
-			return StringToChar(BaseCgt::ref->arrItemName(id_value, index));
+			return StringToChar(EmulateCgt::ref->arrItemName(id_value, index));
 		}
 		int EXPORT arrItemData(int id_value, int index)
 		{
-			return BaseCgt::ref->arrItemData(id_value, index);
+			return EmulateCgt::ref->arrItemData(id_value, index);
 		}
 		int EXPORT arrGetItem(int id_value, int index)
 		{
-			return BaseCgt::ref->arrGetItem(id_value, index);
+			return EmulateCgt::ref->arrGetItem(id_value, index);
 		}
 		int EXPORT isDebug(int id_element)
 		{
-			return BaseCgt::ref->isDebug(id_element);
+			return EmulateCgt::ref->isDebug(id_element);
 		}
 		NDataType EXPORT dtType(int id_value)
 		{
-			return static_cast<NDataType>(BaseCgt::ref->dtType(id_value));
+			return static_cast<NDataType>(EmulateCgt::ref->dtType(id_value));
 		}
 		const char* EXPORT dtStr(int id_value)
 		{
-			return StringToChar(BaseCgt::ref->dtStr(id_value));
+			return StringToChar(EmulateCgt::ref->dtStr(id_value));
 		}
 		int EXPORT dtInt(int id_value)
 		{
-			return BaseCgt::ref->dtInt(id_value);
+			return EmulateCgt::ref->dtInt(id_value);
 		}
 		double EXPORT dtReal(int id_value)
 		{
-			return BaseCgt::ref->dtReal(id_value);
+			return EmulateCgt::ref->dtReal(id_value);
 		}
 		const char* EXPORT fntName(int id_value)
 		{
-			return StringToChar(BaseCgt::ref->fntName(id_value));
+			return StringToChar(EmulateCgt::ref->fntName(id_value));
 		}
 		int EXPORT fntSize(int id_value)
 		{
-			return BaseCgt::ref->fntSize(id_value);
+			return EmulateCgt::ref->fntSize(id_value);
 		}
 		byte EXPORT fntStyle(int id_value)
 		{
-			return BaseCgt::ref->fntStyle(id_value);
+			return EmulateCgt::ref->fntStyle(id_value);
 		}
 		int EXPORT fntColor(int id_value)
 		{
-			return BaseCgt::ref->fntColor(id_value);
+			return EmulateCgt::ref->fntColor(id_value);
 		}
 		byte EXPORT fntCharSet(int id_value)
 		{
-			return BaseCgt::ref->fntCharSet(id_value);
+			return EmulateCgt::ref->fntCharSet(id_value);
 		}
 		int EXPORT elGetData(int id_element)
 		{
-			return BaseCgt::ref->elGetData(id_element);
+			return EmulateCgt::ref->elGetData(id_element);
 		}
 		void EXPORT elSetData(int id_element, int data)
 		{
-			BaseCgt::ref->elSetData(id_element, data);
+			EmulateCgt::ref->elSetData(id_element, data);
 		}
 		NDataType EXPORT ptGetDataType(int id_point)
 		{
-			return static_cast<NDataType>(BaseCgt::ref->ptGetDataType(id_point));
+			return static_cast<NDataType>(EmulateCgt::ref->ptGetDataType(id_point));
 		}
 		int EXPORT elGetParent(int id_element)
 		{
-			return BaseCgt::ref->elGetParent(id_element);
+			return EmulateCgt::ref->elGetParent(id_element);
 		}
 		int EXPORT elGetPropertyListCount(int id_element)
 		{
-			return BaseCgt::ref->elGetPropertyListCount(id_element);
+			return EmulateCgt::ref->elGetPropertyListCount(id_element);
 		}
 		int EXPORT elGetPropertyListItem(int id_element, int index)
 		{
-			return BaseCgt::ref->elGetPropertyListItem(id_element, index);
+			return EmulateCgt::ref->elGetPropertyListItem(id_element, index);
 		}
 		const char* EXPORT plGetName(int id_point)
 		{
-			return StringToChar(BaseCgt::ref->plGetName(id_point));
+			return StringToChar(EmulateCgt::ref->plGetName(id_point));
 		}
 		const char* EXPORT plGetInfo(int id_point)
 		{
-			return StringToChar(BaseCgt::ref->plGetInfo(id_point));
+			return StringToChar(EmulateCgt::ref->plGetInfo(id_point));
 		}
 		const char* EXPORT plGetGroup(int id_point)
 		{
-			return StringToChar(BaseCgt::ref->plGetGroup(id_point));
+			return StringToChar(EmulateCgt::ref->plGetGroup(id_point));
 		}
 		int EXPORT plGetProperty(int id_point)
 		{
-			return BaseCgt::ref->plGetProperty(id_point);
+			return EmulateCgt::ref->plGetProperty(id_point);
 		}
 		int EXPORT plGetOwner(int id_prop)
 		{
-			return BaseCgt::ref->plGetOwner(id_prop);
+			return EmulateCgt::ref->plGetOwner(id_prop);
 		}
 		const char* EXPORT ptGetInfo(int id_prop)
 		{
-			return StringToChar(BaseCgt::ref->ptGetInfo(id_prop));
+			return StringToChar(EmulateCgt::ref->ptGetInfo(id_prop));
 		}
 		int EXPORT propGetLinkedElement(int id_prop, char *propName)
 		{
-			return BaseCgt::ref->propGetLinkedElement(id_prop, CharToString(propName));
+			return EmulateCgt::ref->propGetLinkedElement(id_prop, CharToString(propName));
 		}
 		int EXPORT propIsTranslate(int id_element, int id_prop)
 		{
-			return BaseCgt::ref->propIsTranslate(id_element, id_prop);
+			return EmulateCgt::ref->propIsTranslate(id_element, id_prop);
 		}
 		int EXPORT propGetLinkedElementInfo(int id_element, int id_prop, char *info)
 		{
-			return BaseCgt::ref->propGetLinkedElementInfo(id_element, id_prop, CharToString(info));
+			return EmulateCgt::ref->propGetLinkedElementInfo(id_element, id_prop, CharToString(info));
 		}
 		int EXPORT elGetSDKByIndex(int id_element, int index)
 		{
-			return BaseCgt::ref->elGetSDKByIndex(id_element, index);
+			return EmulateCgt::ref->elGetSDKByIndex(id_element, index);
 		}
 		int EXPORT elGetSDKCount(int id_element)
 		{
-			return BaseCgt::ref->elGetSDKCount(id_element);
+			return EmulateCgt::ref->elGetSDKCount(id_element);
 		}
 		const char* EXPORT elGetSDKName(int id_element, int index)
 		{
-			return StringToChar(BaseCgt::ref->elGetSDKName(id_element, index));
+			return StringToChar(EmulateCgt::ref->elGetSDKName(id_element, index));
 		}
 		int EXPORT sdkGetParent(int id_sdk)
 		{
-			return BaseCgt::ref->sdkGetParent(id_sdk);
+			return EmulateCgt::ref->sdkGetParent(id_sdk);
 		}
 		const char* EXPORT elGetInterface(int id_element)
 		{
-			return StringToChar(BaseCgt::ref->elGetInterface(id_element));
+			return StringToChar(EmulateCgt::ref->elGetInterface(id_element));
 		}
 		const char* EXPORT elGetInherit(int id_element)
 		{
-			return StringToChar(BaseCgt::ref->elGetInherit(id_element));
+			return StringToChar(EmulateCgt::ref->elGetInherit(id_element));
 		}
 		int EXPORT resEmpty()
 		{
-			return BaseCgt::ref->resEmpty();
+			return EmulateCgt::ref->resEmpty();
 		}
 		int EXPORT resSetPref(char *pref)
 		{
-			return BaseCgt::ref->resSetPref(CharToString(pref));
+			return EmulateCgt::ref->resSetPref(CharToString(pref));
 		}
 		int EXPORT _Error(int line, int id_element, char *text)
 		{
-			return BaseCgt::ref->_Error(line, id_element, CharToString(text));
+			return EmulateCgt::ref->_Error(line, id_element, CharToString(text));
 		}
 		int EXPORT elGetGroup(int id_element)
 		{
-			return BaseCgt::ref->elGetGroup(id_element);
+			return EmulateCgt::ref->elGetGroup(id_element);
 		}
 		int EXPORT propSaveToFile(int id_prop, char *fileName)
 		{
-			return BaseCgt::ref->propSaveToFile(id_prop, CharToString(fileName));
+			return EmulateCgt::ref->propSaveToFile(id_prop, CharToString(fileName));
 		}
 
-		static void* proxyCgt[]{
+		/*!  Служебные функции   */
+
+		//Получаем массив указателей на функции
+		void * EmulateCgt::getCgt()
+		{
+			
+			void* emulateCgt[]{
 			reinterpret_cast<void*>(sdkGetCount),
 			reinterpret_cast<void*>(sdkGetElement),
 			reinterpret_cast<void*>(sdkGetElementName),
@@ -499,14 +505,9 @@ namespace CgtClr {
 			reinterpret_cast<void*>(_Error),
 			reinterpret_cast<void*>(elGetGroup),
 			reinterpret_cast<void*>(propSaveToFile),
-		};
+			};
 
-		/*!  Служебные функции   */
-
-		//Получаем массив указателей на функции
-		void *getCgt()
-		{
-			return reinterpret_cast<void *>(proxyCgt);
+			return reinterpret_cast<void *>(emulateCgt);
 		}
 	}
 }

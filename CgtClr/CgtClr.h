@@ -11,7 +11,6 @@ namespace CgtClr {
 	{
 	public:
 		void RunCodeGen(const String ^codeGenPath, Object ^ rootContainer);
-		static BaseCgt ^ref;
 
 		/// <summary>
 		/// Считает количество элементов в контейнере.

@@ -134,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CgtClr.h" />
-    <ClInclude Include="Emulate.h" />
+    <ClInclude Include="EmulateCgt.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Share.h" />
     <ClInclude Include="Stdafx.h" />
@@ -142,7 +142,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CgtClr.cpp" />
-    <ClCompile Include="Emulate.cpp" />
+    <ClCompile Include="EmulateCgt.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
