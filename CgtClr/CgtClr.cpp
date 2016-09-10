@@ -8,7 +8,7 @@ using namespace System;
 using namespace CgtClr::Share;
 
 namespace CgtClr {
-	void BaseCgt::RunCodeGen(const String ^codeGenPath, int idRootContainer)
+	void BaseCgt::RunCodeGen(const String ^codeGenPath, Object^ rootContainer)
 	{
 		pin_ptr<const wchar_t> path = PtrToStringChars(codeGenPath);
 		auto hCodeGen = LoadLibraryW(path);

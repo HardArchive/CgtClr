@@ -10,7 +10,7 @@ namespace CgtClr {
 	public ref class BaseCgt abstract
 	{
 	public:
-		void RunCodeGen(const String ^codeGenPath, Object ^ ptrRootContainer);
+		void RunCodeGen(const String ^codeGenPath, Object ^ rootContainer);
 		static BaseCgt ^ref;
 
 		/// <summary>
@@ -525,7 +525,7 @@ namespace CgtClr {
 		virtual Object ^ plGetProperty(Object ^ p) abstract;
 
 		/// <summary>
-		/// Возвращает указатель на родительский элемент свойства.
+		/// Возвращает родительский элемент свойства.
 		/// </summary>
 		/// <param name="p">Свойство</param>
 		/// <returns>Элемент</returns>
