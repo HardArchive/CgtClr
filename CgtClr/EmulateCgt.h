@@ -4,14 +4,20 @@
 #include "Share.h"
 #include "CgtClr.h"
 
+using namespace System::Collections::Generic;
+
 namespace CgtClr {
 	using namespace Share;
 
 	namespace Emulate {
-		static private ref class EmulateCgt
+		static ref class EmulateCgt
 		{
+			static  List<GCHandle> m_handleList;
+
 		public:
-			static void *getCgt();
+			static void *GetCgt();
+			static IntPtr ^ ObjectToIntPtr(Object ^ obj);
+
 			static BaseCgt ^ref;
 		};
 	}

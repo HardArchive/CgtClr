@@ -23,7 +23,7 @@ namespace CgtClr {
 			TBuildProcessProc buildProcessProcLib = (TBuildProcessProc)GetProcAddress(hCodeGen, "buildProcessProc");
 			TBuildProcessRec params;
 			params.sdk = rootContainer;
-			params.cgt = EmulateCgt::getCgt();
+			params.cgt = EmulateCgt::GetCgt();
 			buildProcessProcLib(params);
 			FreeLibrary(hCodeGen);
 		}

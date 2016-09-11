@@ -3,7 +3,7 @@
 #include "EmulateCgt.h"
 
 using namespace System::Runtime::InteropServices;
-using namespace System;
+
 
 namespace CgtClr {
 	namespace Emulate {
@@ -416,9 +416,9 @@ namespace CgtClr {
 		/*!  Служебные функции   */
 
 		//Получаем массив указателей на функции
-		void * EmulateCgt::getCgt()
+		void * EmulateCgt::GetCgt()
 		{
-			
+
 			void* emulateCgt[]{
 			reinterpret_cast<void*>(sdkGetCount),
 			reinterpret_cast<void*>(sdkGetElement),
@@ -508,6 +508,22 @@ namespace CgtClr {
 			};
 
 			return reinterpret_cast<void *>(emulateCgt);
+		}
+		IntPtr ^ EmulateCgt::ObjectToIntPtr(Object ^ obj)
+		{
+			if (obj == nullptr)
+			{
+				return nullptr;
+			}
+			//bool flag;
+			//long id = Share.gen.GetId(obj, out flag);
+
+			GCHandle value = GCHandle->Alloc(obj, GCHandleType::Normal);
+			Share.handles.ContainsValue(value);
+			Share.handles.Add(id, value);
+			return (IntPtr)value;
+
+			return (IntPtr)Share.handles[id];
 		}
 	}
 }
