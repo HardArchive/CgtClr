@@ -10,6 +10,7 @@ using namespace CgtClr::Emulate;
 
 
 namespace CgtClr {
+	[assembly:CLSCompliant(true)]
 
 	void BaseCgt::RunCodeGen(const String ^codeGenPath, Object^ rootContainer)
 	{
