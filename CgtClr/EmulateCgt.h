@@ -5,6 +5,7 @@
 #include "CgtClr.h"
 
 using namespace System::Collections::Generic;
+using namespace System::Runtime::InteropServices;
 
 namespace CgtClr {
 	using namespace Share;
@@ -12,11 +13,12 @@ namespace CgtClr {
 	namespace Emulate {
 		static ref class EmulateCgt
 		{
-			static  List<GCHandle> m_handleList;
+			static List<IntPtr> ^m_handleList;
 
 		public:
 			static void *GetCgt();
-			static IntPtr ^ ObjectToIntPtr(Object ^ obj);
+			static IntPtr ObjectToIntPtr(Object ^ obj);
+			static void AddHandle(IntPtr % h);
 
 			static BaseCgt ^ref;
 		};

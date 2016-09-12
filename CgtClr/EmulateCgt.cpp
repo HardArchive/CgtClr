@@ -22,6 +22,7 @@ namespace CgtClr {
 
 		int EXPORT sdkGetCount(int id_sdk)
 		{
+
 			return EmulateCgt::ref->sdkGetCount(id_sdk);
 		}
 		int EXPORT sdkGetElement(int id_sdk, int index)
@@ -509,21 +510,20 @@ namespace CgtClr {
 
 			return reinterpret_cast<void *>(emulateCgt);
 		}
-		IntPtr ^ EmulateCgt::ObjectToIntPtr(Object ^ obj)
+		IntPtr EmulateCgt::ObjectToIntPtr(Object ^ obj)
 		{
 			if (obj == nullptr)
 			{
-				return nullptr;
+				return IntPtr::Zero;
 			}
-			//bool flag;
-			//long id = Share.gen.GetId(obj, out flag);
+			IntPtr value = GCHandle::ToIntPtr(GCHandle::Alloc(obj, GCHandleType::Normal));
+			AddHandle(value);
 
-			GCHandle value = GCHandle->Alloc(obj, GCHandleType::Normal);
-			Share.handles.ContainsValue(value);
-			Share.handles.Add(id, value);
-			return (IntPtr)value;
-
-			return (IntPtr)Share.handles[id];
+			return value;
+		}
+		void EmulateCgt::AddHandle(IntPtr % h)
+		{
+			m_handleList->Add(h);
 		}
 	}
 }
